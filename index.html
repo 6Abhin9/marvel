@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARVEL | The Complete Cinematic Timeline (2000–2026)</title>
+    <meta name="description"
+        content="A collector-style cinematic timeline tribute celebrating every major Marvel film, television series, special presentation, and multiverse saga from 2000 to 2026.">
+    <meta name="theme-color" content="#06070a">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        marvelRed: '#C8102E',          /* Refined elegant crimson */
+                        marvelDarkRed: '#8B0000',
+                        marvelGold: '#D4AF37',          /* Muted metallic gold */
+                        spaceBlack: '#06070A',          /* Ultra dark obsidian background */
+                        glassBg: 'rgba(13, 16, 24, 0.65)',
+                        glassBorder: 'rgba(255, 255, 255, 0.08)',
+                        metallicSilver: '#94A3B8',
+                        foxBlue: '#1E40AF',
+                        sonyPurple: '#6D28D9'
+                    },
+                    fontFamily: {
+                        marvel: ['Bebas Neue', 'sans-serif'],
+                        cinematic: ['Cinzel', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'glass-card': '0 8px 32px 0 rgba(0, 0, 0, 0.45)',
+                        'elegant-glow': '0 10px 40px -10px rgba(200, 16, 46, 0.25)',
+                        'subtle-hover': '0 20px 40px -15px rgba(0, 0, 0, 0.7)'
+                    },
+                    animation: {
+                        'pulse-subtle': 'pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 8s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-8px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .glass-panel {
+                background: rgba(12, 15, 23, 0.6);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+            }
+            .glass-card-hover {
+                transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+            .glass-card-hover:hover {
+                border-color: rgba(200, 16, 46, 0.4);
+                box-shadow: 0 12px 35px -10px rgba(200, 16, 46, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.6);
+                transform: translateY(-5px);
+            }
+            .custom-scrollbar::-webkit-scrollbar {
+                width: 7px;
+            }
+            .custom-scrollbar::-webkit-scrollbar-track {
+                background: #06070A;
+            }
+            .custom-scrollbar::-webkit-scrollbar-thumb {
+                background: #1E2433;
+                border-radius: 4px;
+                border: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+                background: #C8102E;
+            }
+        }
+    </style>
+</head>
+
+<body
+    class="bg-spaceBlack text-slate-200 font-sans antialiased custom-scrollbar selection:bg-marvelRed selection:text-white overflow-x-hidden">
+
+    <!-- BACKGROUND COSMIC CANVAS -->
+    <canvas id="heroCanvas" class="fixed inset-0 w-full h-full pointer-events-none z-0 opacity-30"></canvas>
+
+    <!-- ELEGANT GLASS NAVBAR -->
+    <nav id="navbar"
+        class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-spaceBlack/50 backdrop-blur-xl border-b border-white/10 py-3.5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#home" class="flex items-center gap-3 group">
+                <div
+                    class="relative bg-marvelRed text-white font-marvel text-2xl tracking-wider px-3 py-0.5 rounded border border-white/10 group-hover:bg-marvelDarkRed transition-colors">
+                    MARVEL
+                </div>
+                <div class="flex flex-col">
+                    <span
+                        class="font-cinematic font-bold text-sm tracking-wider text-white group-hover:text-marvelRed transition-colors">COLLECTOR
+                        TIMELINE</span>
+                    <span class="text-[10px] tracking-widest text-slate-400 uppercase font-mono">2000 – 2026
+                        ARCHIVE</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <div class="hidden md:flex items-center space-x-8 text-xs font-semibold tracking-wider uppercase">
+                <a href="#home"
+                    class="text-slate-300 hover:text-white transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-marvelRed hover:after:w-full after:transition-all">Home</a>
+                <a href="#controls"
+                    class="text-slate-300 hover:text-white transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-marvelRed hover:after:w-full after:transition-all">Timeline
+                    Vault</a>
+                <a href="#eras"
+                    class="text-slate-300 hover:text-white transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-marvelRed hover:after:w-full after:transition-all">Eras</a>
+                <a href="#stats"
+                    class="text-slate-300 hover:text-white transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-marvelRed hover:after:w-full after:transition-all">Stats</a>
+                <a href="#universes"
+                    class="text-slate-300 hover:text-white transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-marvelRed hover:after:w-full after:transition-all">Universes</a>
+            </div>
+
+            <!-- Quick Action & Mobile Menu Toggle -->
+            <div class="flex items-center gap-4">
+                <button onclick="focusSearch()"
+                    class="hidden sm:flex items-center gap-2 text-xs bg-white/5 border border-white/10 hover:border-white/20 text-slate-300 px-3.5 py-1.5 rounded-full transition-all">
+                    <i class="fa-solid fa-magnifying-glass text-marvelRed"></i>
+                    <span>Quick Search</span>
+                    <kbd class="bg-white/10 text-[10px] px-1.5 py-0.5 rounded text-slate-400 font-mono">⌘K</kbd>
+                </button>
+                <button id="mobileMenuBtn" aria-label="Toggle Navigation Menu"
+                    class="md:hidden text-slate-300 hover:text-white text-xl focus:outline-none">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobileDrawer"
+            class="hidden md:hidden bg-spaceBlack/95 border-b border-white/10 px-4 pt-3 pb-6 transition-all duration-300">
+            <div class="flex flex-col space-y-3 font-medium text-xs uppercase tracking-wider">
+                <a href="#home"
+                    class="mobile-link py-2 border-b border-white/5 text-slate-300 hover:text-white">Home</a>
+                <a href="#controls"
+                    class="mobile-link py-2 border-b border-white/5 text-slate-300 hover:text-white">Timeline Vault</a>
+                <a href="#eras"
+                    class="mobile-link py-2 border-b border-white/5 text-slate-300 hover:text-white">Eras</a>
+                <a href="#stats"
+                    class="mobile-link py-2 border-b border-white/5 text-slate-300 hover:text-white">Collector Stats</a>
+                <a href="#universes" class="mobile-link py-2 text-slate-300 hover:text-white">Universes</a>
+            </div>
+        </div>
+    </nav>
+    <!-- WATCH PRIORITY GUIDE -->
+    <section id="priorityGuide"
+        class="py-20 px-4 bg-gradient-to-b from-spaceBlack via-spaceBlack/90 to-spaceBlack border-t border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-marvelRed text-xs font-bold uppercase tracking-widest">VIEWING GUIDE</span>
+                <h2 class="font-cinematic text-3xl sm:text-4xl font-extrabold text-white mt-1">WATCH PRIORITY LEVELS
+                </h2>
+                <p class="text-slate-400 text-xs mt-2">Not sure where to start? Use our priority system to navigate the
+                    Marvel timeline efficiently — from essential MCU canon to optional side stories.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+
+                <!-- Priority 1: Must Watch -->
+                <div
+                    class="glass-panel p-5 rounded-2xl border border-red-500/30 hover:border-red-500/60 transition-all group relative">
+                    <div class="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
+                        <div
+                            class="absolute top-0 right-0 w-24 h-24 bg-red-500/5 rounded-full -translate-y-8 translate-x-8 group-hover:scale-150 transition-transform duration-500">
+                        </div>
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="w-10 h-10 rounded-xl bg-red-500/15 flex items-center justify-center text-red-400 text-lg mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-fire"></i>
+                        </div>
+                        <div class="flex items-center gap-2 mb-2">
+                            <span
+                                class="inline-flex items-center gap-1 text-[10px] font-bold border px-2 py-0.5 rounded-full bg-red-500/20 text-red-400 border-red-500/40">
+                                LEVEL 1
+                            </span>
+                        </div>
+                        <h3
+                            class="font-cinematic text-lg font-bold text-white mb-2 group-hover:text-red-400 transition-colors">
+                            Must Watch</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">Essential for MCU continuity. These titles
+                            drive the main storyline forward — skip them and you'll be lost in the bigger picture.</p>
+                    </div>
+                </div>
+
+                <!-- Priority 2: Should Watch -->
+                <div
+                    class="glass-panel p-5 rounded-2xl border border-amber-500/30 hover:border-amber-500/60 transition-all group relative">
+                    <div class="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
+                        <div
+                            class="absolute top-0 right-0 w-24 h-24 bg-amber-500/5 rounded-full -translate-y-8 translate-x-8 group-hover:scale-150 transition-transform duration-500">
+                        </div>
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="w-10 h-10 rounded-xl bg-amber-500/15 flex items-center justify-center text-amber-400 text-lg mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <div class="flex items-center gap-2 mb-2">
+                            <span
+                                class="inline-flex items-center gap-1 text-[10px] font-bold border px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400 border-amber-500/40">
+                                LEVEL 2
+                            </span>
+                        </div>
+                        <h3
+                            class="font-cinematic text-lg font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">
+                            Should Watch</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">Highly recommended — crossovers happen across
+                            the multiverse. These titles add depth and context to the bigger events.</p>
+                    </div>
+                </div>
+
+                <!-- Priority 3: Good Watch -->
+                <div
+                    class="glass-panel p-5 rounded-2xl border border-emerald-500/30 hover:border-emerald-500/60 transition-all group relative">
+                    <div class="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
+                        <div
+                            class="absolute top-0 right-0 w-24 h-24 bg-emerald-500/5 rounded-full -translate-y-8 translate-x-8 group-hover:scale-150 transition-transform duration-500">
+                        </div>
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="w-10 h-10 rounded-xl bg-emerald-500/15 flex items-center justify-center text-emerald-400 text-lg mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-thumbs-up"></i>
+                        </div>
+                        <div class="flex items-center gap-2 mb-2">
+                            <span
+                                class="inline-flex items-center gap-1 text-[10px] font-bold border px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border-emerald-500/40">
+                                LEVEL 3
+                            </span>
+                        </div>
+                        <h3
+                            class="font-cinematic text-lg font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
+                            Good Watch</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">Not directly connected, but characters may
+                            appear in future projects. Give it a try — you'll probably love it.</p>
+                    </div>
+                </div>
+
+                <!-- Priority 4: Maybe Watch -->
+                <div
+                    class="glass-panel p-5 rounded-2xl border border-sky-500/30 hover:border-sky-500/60 transition-all group relative">
+                    <div class="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
+                        <div
+                            class="absolute top-0 right-0 w-24 h-24 bg-sky-500/5 rounded-full -translate-y-8 translate-x-8 group-hover:scale-150 transition-transform duration-500">
+                        </div>
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="w-10 h-10 rounded-xl bg-sky-500/15 flex items-center justify-center text-sky-400 text-lg mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-circle-question"></i>
+                        </div>
+                        <div class="flex items-center gap-2 mb-2">
+                            <span
+                                class="inline-flex items-center gap-1 text-[10px] font-bold border px-2 py-0.5 rounded-full bg-sky-500/20 text-sky-400 border-sky-500/40">
+                                LEVEL 4
+                            </span>
+                        </div>
+                        <h3
+                            class="font-cinematic text-lg font-bold text-white mb-2 group-hover:text-sky-400 transition-colors">
+                            Maybe Watch</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">Watch or not — doesn't matter for the main
+                            story. If you want to meet new characters and explore side stories, give it a try.</p>
+                    </div>
+                </div>
+
+                <!-- Priority 5: You Can Skip -->
+                <div
+                    class="glass-panel p-5 rounded-2xl border border-slate-500/30 hover:border-slate-500/60 transition-all group relative">
+                    <div class="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
+                        <div
+                            class="absolute top-0 right-0 w-24 h-24 bg-slate-500/5 rounded-full -translate-y-8 translate-x-8 group-hover:scale-150 transition-transform duration-500">
+                        </div>
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="w-10 h-10 rounded-xl bg-slate-500/15 flex items-center justify-center text-slate-400 text-lg mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-forward"></i>
+                        </div>
+                        <div class="flex items-center gap-2 mb-2">
+                            <span
+                                class="inline-flex items-center gap-1 text-[10px] font-bold border px-2 py-0.5 rounded-full bg-slate-500/20 text-slate-400 border-slate-500/40">
+                                LEVEL 5
+                            </span>
+                        </div>
+                        <h3
+                            class="font-cinematic text-lg font-bold text-white mb-2 group-hover:text-slate-300 transition-colors">
+                            You Can Skip</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">Skip this if you don't want to waste time.
+                            These titles have minimal impact on the larger Marvel universe.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-24 pb-16 px-4 overflow-hidden">
+        <!-- Soft Glassmorphic Ambient Backdrops -->
+        <div
+            class="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-marvelRed/10 rounded-full blur-[150px] pointer-events-none animate-pulse-subtle">
+        </div>
+        <div
+            class="absolute bottom-10 right-1/4 w-[450px] h-[450px] bg-slate-700/10 rounded-full blur-[130px] pointer-events-none">
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto text-center">
+            <!-- Badge Header -->
+            <div
+                class="inline-flex items-center gap-2 bg-white/[0.04] border border-white/10 px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest text-slate-300 uppercase mb-6 backdrop-blur-md">
+                <i class="fa-solid fa-film text-marvelRed"></i>
+                <span>Collector's Edition</span>
+                <span class="w-1.5 h-1.5 rounded-full bg-marvelRed"></span>
+            </div>
+
+            <!-- Title -->
+            <h1
+                class="font-marvel text-6xl sm:text-8xl md:text-9xl tracking-wider leading-none uppercase mb-3 text-white">
+                MARVEL
+                <span
+                    class="block text-3xl sm:text-5xl md:text-6xl font-cinematic font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-slate-100 via-slate-300 to-slate-400 mt-2 tracking-tight">
+                    THE COMPLETE TIMELINE
+                </span>
+            </h1>
+
+            <p class="font-cinematic text-lg sm:text-2xl text-marvelRed font-bold tracking-widest mb-6">
+                2000 – 2026
+            </p>
+
+            <p class="max-w-2xl mx-auto text-slate-300 text-sm sm:text-base leading-relaxed font-light mb-10">
+                A definitive collector's chronicle spanning every live-action film, television series, special
+                presentation, and multiverse saga from 2000 to 2026.
+            </p>
+
+            <!-- Metrics Grid -->
+            <div
+                class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto mb-10 glass-panel p-5 rounded-2xl border border-white/10">
+                <div class="p-2 text-center border-r border-white/5 last:border-0 sm:last:border-r-0">
+                    <span class="block font-marvel text-3xl sm:text-4xl text-white">26</span>
+                    <span class="text-[10px] text-slate-400 font-mono tracking-widest uppercase">Years Covered</span>
+                </div>
+                <div class="p-2 text-center border-r border-white/5 sm:border-r">
+                    <span class="block font-marvel text-3xl sm:text-4xl text-marvelRed" id="heroProjectCount">127</span>
+                    <span class="text-[10px] text-slate-400 font-mono tracking-widest uppercase">Live-Action & TV</span>
+                </div>
+                <div class="p-2 text-center border-r border-white/5">
+                    <span class="block font-marvel text-3xl sm:text-4xl text-white">5</span>
+                    <span class="text-[10px] text-slate-400 font-mono tracking-widest uppercase">Multiverse
+                        Realms</span>
+                </div>
+                <div class="p-2 text-center">
+                    <span class="block font-marvel text-3xl sm:text-4xl text-marvelGold">5</span>
+                    <span class="text-[10px] text-slate-400 font-mono tracking-widest uppercase">Major Chapters</span>
+                </div>
+            </div>
+
+            <!-- CTAs -->
+            <div class="flex flex-wrap items-center justify-center gap-4">
+                <a href="#controls"
+                    class="px-7 py-3 bg-marvelRed hover:bg-marvelDarkRed text-white font-semibold text-xs tracking-wider uppercase rounded-xl transition-all flex items-center gap-2 border border-white/10">
+                    <span>Explore Timeline</span>
+                    <i class="fa-solid fa-arrow-down"></i>
+                </a>
+                <a href="#eras"
+                    class="px-7 py-3 bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 font-semibold text-xs tracking-wider uppercase rounded-xl transition-all flex items-center gap-2 backdrop-blur-md">
+                    <i class="fa-solid fa-layer-group text-slate-400"></i>
+                    <span>View Eras</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <a href="#controls"
+            class="absolute bottom-6 left-1/2 -translate-x-1/2 text-slate-400 hover:text-white transition-colors text-center flex flex-col items-center gap-1 group">
+            <span class="text-[9px] uppercase font-mono tracking-widest">Scroll Vault</span>
+            <i class="fa-solid fa-chevron-down text-xs text-marvelRed animate-bounce"></i>
+        </a>
+    </section>
+
+    <!-- TIMELINE CONTROLS & FILTER SECTION -->
+    <section id="controls"
+        class="sticky top-[65px] z-40 bg-spaceBlack/80 backdrop-blur-xl border-y border-white/10 py-4 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-4">
+
+            <!-- Search Bar -->
+            <div class="relative w-full lg:w-96">
+                <i
+                    class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                <input type="text" id="searchInput" placeholder="Search by title, character, year..."
+                    class="w-full bg-white/5 border border-white/10 focus:border-marvelRed text-xs text-white placeholder-slate-500 rounded-xl pl-10 pr-10 py-2.5 outline-none transition-all">
+                <button id="clearSearchBtn"
+                    class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white text-xs">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Category & Priority Filter Chips -->
+            <div
+                class="flex items-center gap-2 overflow-x-auto w-full lg:w-auto pb-2 lg:pb-0 custom-scrollbar scrollbar-none">
+                <button
+                    class="filter-btn active px-3 py-1.5 rounded-full text-xs font-medium uppercase tracking-wider transition-all bg-marvelRed text-white shrink-0"
+                    data-filter="all">All Archive</button>
+                <button
+                    class="filter-btn px-3 py-1.5 rounded-full text-xs font-medium uppercase tracking-wider transition-all bg-white/5 border border-white/10 text-slate-300 hover:border-white/20 hover:text-white shrink-0"
+                    data-filter="MCU">MCU</button>
+                <button
+                    class="filter-btn px-3 py-1.5 rounded-full text-xs font-medium uppercase tracking-wider transition-all bg-white/5 border border-white/10 text-slate-300 hover:border-white/20 hover:text-white shrink-0"
+                    data-filter="Fox">Fox</button>
+                <button
+                    class="filter-btn px-3 py-1.5 rounded-full text-xs font-medium uppercase tracking-wider transition-all bg-white/5 border border-white/10 text-slate-300 hover:border-white/20 hover:text-white shrink-0"
+                    data-filter="Sony">Sony</button>
+                <button
+                    class="filter-btn px-3 py-1.5 rounded-full text-xs font-medium uppercase tracking-wider transition-all bg-white/5 border border-white/10 text-slate-300 hover:border-white/20 hover:text-white shrink-0"
+                    data-filter="Movie">Movies</button>
+                <button
+                    class="filter-btn px-3 py-1.5 rounded-full text-xs font-medium uppercase tracking-wider transition-all bg-white/5 border border-white/10 text-slate-300 hover:border-white/20 hover:text-white shrink-0"
+                    data-filter="Series">TV Series</button>
+
+                <div class="h-4 w-[1px] bg-white/15 mx-1 shrink-0"></div>
+
+                <!-- Priority Filters -->
+                <button
+                    class="filter-btn px-2.5 py-1.5 rounded-full text-xs font-medium transition-all bg-white/5 border border-red-500/30 text-red-400 hover:bg-red-500/20 shrink-0 flex items-center gap-1"
+                    data-filter="priority-1"><i class="fa-solid fa-fire text-[10px]"></i> Must Watch</button>
+                <button
+                    class="filter-btn px-2.5 py-1.5 rounded-full text-xs font-medium transition-all bg-white/5 border border-amber-500/30 text-amber-400 hover:bg-amber-500/20 shrink-0 flex items-center gap-1"
+                    data-filter="priority-2"><i class="fa-solid fa-star text-[10px]"></i> Should Watch</button>
+                <button
+                    class="filter-btn px-2.5 py-1.5 rounded-full text-xs font-medium transition-all bg-white/5 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20 shrink-0 flex items-center gap-1"
+                    data-filter="priority-3"><i class="fa-solid fa-thumbs-up text-[10px]"></i> Good Watch</button>
+                <button
+                    class="filter-btn px-2.5 py-1.5 rounded-full text-xs font-medium transition-all bg-white/5 border border-sky-500/30 text-sky-400 hover:bg-sky-500/20 shrink-0 flex items-center gap-1"
+                    data-filter="priority-4"><i class="fa-solid fa-circle-question text-[10px]"></i> Maybe
+                    Watch</button>
+                <button
+                    class="filter-btn px-2.5 py-1.5 rounded-full text-xs font-medium transition-all bg-white/5 border border-slate-500/30 text-slate-400 hover:bg-slate-500/20 shrink-0 flex items-center gap-1"
+                    data-filter="priority-5"><i class="fa-solid fa-forward text-[10px]"></i> You Can Skip</button>
+            </div>
+
+            <!-- View Toggles & Status -->
+            <div class="flex items-center justify-between w-full sm:w-auto gap-4">
+                <span id="resultsCounter" class="text-xs text-slate-400 font-mono">Showing <strong
+                        class="text-marvelRed" id="visibleCount">0</strong> Titles</span>
+
+                <div class="flex items-center bg-white/5 border border-white/10 rounded-xl p-1 gap-1">
+                    <button id="viewTimelineBtn" title="Timeline Stream View"
+                        class="px-3 py-1.5 rounded-lg text-xs font-medium text-white bg-marvelRed transition-all">
+                        <i class="fa-solid fa-timeline"></i>
+                    </button>
+                    <button id="viewGridBtn" title="Collector Grid View"
+                        class="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition-all">
+                        <i class="fa-solid fa-border-all"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIMELINE CONTAINER -->
+    <main id="timelineSection" class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 min-h-screen">
+
+        <!-- VERTICAL GLOWING CONNECTOR LINE -->
+        <div id="timelineConnectorLine"
+            class="hidden lg:block absolute left-1/2 top-24 bottom-24 -translate-x-1/2 w-[2px] bg-gradient-to-b from-marvelRed via-slate-600 to-marvelRed opacity-50">
+        </div>
+
+        <!-- Dynamic Content Mount Point -->
+        <div id="timelineContainer" class="space-y-16">
+            <!-- Timeline Eras & Cards rendered programmatically via JS -->
+        </div>
+
+        <!-- Empty State Message -->
+        <div id="noResultsState"
+            class="hidden text-center py-20 glass-panel rounded-3xl max-w-md mx-auto my-12 border border-white/10">
+            <i class="fa-solid fa-magnifying-glass text-4xl text-marvelRed mb-4"></i>
+            <h3 class="font-cinematic text-xl font-bold text-white mb-2">No Titles Found</h3>
+            <p class="text-slate-400 text-xs mb-6 px-6">No Marvel projects match your search query. Try adjusting
+                keywords or clearing active filters.</p>
+            <button onclick="resetFilters()"
+                class="px-5 py-2 bg-marvelRed hover:bg-marvelDarkRed text-white text-xs font-semibold uppercase tracking-wider rounded-xl transition-all">
+                Reset Filters
+            </button>
+        </div>
+    </main>
+
+    <!-- ERAS & PHASES DIRECTORY -->
+    <section id="eras"
+        class="py-20 px-4 bg-gradient-to-b from-spaceBlack via-spaceBlack/90 to-spaceBlack border-t border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-marvelRed text-xs font-bold uppercase tracking-widest">CHAPTER DIRECTORY</span>
+                <h2 class="font-cinematic text-3xl sm:text-4xl font-extrabold text-white mt-1">THE 5 ERA CHAPTERS</h2>
+                <p class="text-slate-400 text-xs mt-2">Explore the chronological eras defining Marvel's live-action
+                    legacy.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Era 1 -->
+                <div onclick="filterByEra('Fox & Early Marvel')"
+                    class="glass-panel glass-card-hover p-6 rounded-2xl cursor-pointer group">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-mono text-slate-400">2000 – 2007</span>
+                        <i class="fa-solid fa-film text-slate-400 group-hover:text-marvelRed transition-colors"></i>
+                    </div>
+                    <h3
+                        class="font-cinematic text-lg font-bold text-white group-hover:text-marvelRed transition-colors mb-2">
+                        Era 1 — Fox & Early Marvel</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">X-Men, Tobey Maguire Spider-Man trilogy,
+                        Daredevil, Hulk, and Fantastic Four.</p>
+                </div>
+                <!-- Era 2 -->
+                <div onclick="filterByEra('Marvel Studios Begins')"
+                    class="glass-panel glass-card-hover p-6 rounded-2xl cursor-pointer group">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-mono text-marvelRed font-bold">2008 – 2012</span>
+                        <i class="fa-solid fa-shield-halved text-marvelRed"></i>
+                    </div>
+                    <h3
+                        class="font-cinematic text-lg font-bold text-white group-hover:text-marvelRed transition-colors mb-2">
+                        Era 2 — Marvel Studios Begins</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Iron Man, Incredible Hulk, Thor, Captain America,
+                        and 2012's The Avengers.</p>
+                </div>
+                <!-- Era 3 -->
+                <div onclick="filterByEra('Television Expansion')"
+                    class="glass-panel glass-card-hover p-6 rounded-2xl cursor-pointer group">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-mono text-slate-400">2013 – 2020</span>
+                        <i class="fa-solid fa-tv text-slate-400 group-hover:text-marvelRed transition-colors"></i>
+                    </div>
+                    <h3
+                        class="font-cinematic text-lg font-bold text-white group-hover:text-marvelRed transition-colors mb-2">
+                        Era 3 — Television Expansion</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Agents of S.H.I.E.L.D., Netflix Defenders,
+                        Infinity War, Endgame, and Fox conclusions.</p>
+                </div>
+                <!-- Era 4 -->
+                <div onclick="filterByEra('Disney+ Begins')"
+                    class="glass-panel glass-card-hover p-6 rounded-2xl cursor-pointer group">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-mono text-slate-400">2021 – 2024</span>
+                        <i class="fa-solid fa-infinity text-slate-400 group-hover:text-marvelRed transition-colors"></i>
+                    </div>
+                    <h3
+                        class="font-cinematic text-lg font-bold text-white group-hover:text-marvelRed transition-colors mb-2">
+                        Era 4 — Disney+ Begins</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">WandaVision, Loki, No Way Home, Multiverse of
+                        Madness, Deadpool & Wolverine.</p>
+                </div>
+                <!-- Era 5 -->
+                <div onclick="filterByEra('Multiverse & Beyond')"
+                    class="glass-panel glass-card-hover p-6 rounded-2xl cursor-pointer group sm:col-span-2 lg:col-span-2">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-mono text-marvelGold font-bold">2025 – 2026</span>
+                        <i class="fa-solid fa-meteor text-marvelGold"></i>
+                    </div>
+                    <h3
+                        class="font-cinematic text-lg font-bold text-white group-hover:text-marvelRed transition-colors mb-2">
+                        Era 5 — Multiverse & Beyond (2025–2026)</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Fantastic Four First Steps, Daredevil Born Again,
+                        Captain America Brave New World, Spider-Man Brand New Day, and Avengers: Doomsday.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATISTICS COUNTER SECTION -->
+    <section id="stats" class="py-20 px-4 relative overflow-hidden bg-spaceBlack border-t border-white/5">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Stat 1 -->
+                <div class="glass-panel p-6 rounded-2xl text-center group hover:border-white/20 transition-all">
+                    <i class="fa-solid fa-film text-3xl text-marvelRed mb-2 opacity-80"></i>
+                    <div class="font-marvel text-4xl sm:text-5xl text-white font-bold tracking-tight mb-1">
+                        <span class="counter" data-target="73">0</span>
+                    </div>
+                    <span class="text-[10px] text-slate-400 font-mono uppercase tracking-widest">Movies Released</span>
+                </div>
+                <!-- Stat 2 -->
+                <div class="glass-panel p-6 rounded-2xl text-center group hover:border-white/20 transition-all">
+                    <i class="fa-solid fa-tv text-3xl text-slate-300 mb-2 opacity-80"></i>
+                    <div class="font-marvel text-4xl sm:text-5xl text-white font-bold tracking-tight mb-1">
+                        <span class="counter" data-target="56">0</span>
+                    </div>
+                    <span class="text-[10px] text-slate-400 font-mono uppercase tracking-widest">TV Series &
+                        Specials</span>
+                </div>
+                <!-- Stat 3 -->
+                <div class="glass-panel p-6 rounded-2xl text-center group hover:border-white/20 transition-all">
+                    <i class="fa-solid fa-cubes text-3xl text-marvelGold mb-2 opacity-80"></i>
+                    <div class="font-marvel text-4xl sm:text-5xl text-white font-bold tracking-tight mb-1">
+                        <span class="counter" data-target="5">0</span>
+                    </div>
+                    <span class="text-[10px] text-slate-400 font-mono uppercase tracking-widest">Multiverse
+                        Studios</span>
+                </div>
+                <!-- Stat 4 -->
+                <div class="glass-panel p-6 rounded-2xl text-center group hover:border-white/20 transition-all">
+                    <i class="fa-solid fa-hourglass-half text-3xl text-marvelRed mb-2 opacity-80"></i>
+                    <div class="font-marvel text-4xl sm:text-5xl text-white font-bold tracking-tight mb-1">
+                        <span class="counter" data-target="26">0</span>
+                    </div>
+                    <span class="text-[10px] text-slate-400 font-mono uppercase tracking-widest">Years of History</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UNIVERSES SHOWCASE -->
+    <section id="universes"
+        class="py-20 px-4 bg-gradient-to-b from-spaceBlack via-spaceBlack/80 to-spaceBlack border-t border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-marvelRed text-xs font-bold uppercase tracking-widest">STUDIO BRANCHES</span>
+                <h2 class="font-cinematic text-3xl sm:text-4xl font-extrabold text-white mt-1">THE MULTIVERSE REALMS
+                </h2>
+                <p class="text-slate-400 text-xs mt-2">Connecting every major studio and television branch into one
+                    timeline.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Marvel Studios MCU -->
+                <div
+                    class="glass-panel p-6 rounded-2xl border border-white/10 hover:border-marvelRed/40 transition-all">
+                    <div
+                        class="w-10 h-10 rounded-xl bg-marvelRed/15 flex items-center justify-center text-marvelRed text-xl mb-4">
+                        <i class="fa-solid fa-crown"></i>
+                    </div>
+                    <h3 class="font-cinematic text-xl font-bold text-white mb-2">Marvel Studios (MCU)</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed mb-6">The core connected cinematic universe founded
+                        by Kevin Feige from Iron Man (2008) through Avengers: Doomsday (2026).</p>
+                    <div
+                        class="flex items-center justify-between text-xs font-mono text-slate-300 pt-3 border-t border-white/10">
+                        <span>Archive Count:</span>
+                        <strong class="text-marvelRed">60+ Titles</strong>
+                    </div>
+                </div>
+
+                <!-- 20th Century Fox -->
+                <div class="glass-panel p-6 rounded-2xl border border-white/10 hover:border-blue-500/40 transition-all">
+                    <div
+                        class="w-10 h-10 rounded-xl bg-blue-500/15 flex items-center justify-center text-blue-400 text-xl mb-4">
+                        <i class="fa-solid fa-dna"></i>
+                    </div>
+                    <h3 class="font-cinematic text-xl font-bold text-white mb-2">Fox X-Men & Mutants</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed mb-6">The Mutant legacy starting in 2000 through
+                        Logan, Deadpool, and TV spin-offs like Legion & The Gifted.</p>
+                    <div
+                        class="flex items-center justify-between text-xs font-mono text-slate-300 pt-3 border-t border-white/10">
+                        <span>Archive Count:</span>
+                        <strong class="text-blue-400">20+ Titles</strong>
+                    </div>
+                </div>
+
+                <!-- Sony Spider-Man Universe -->
+                <div
+                    class="glass-panel p-6 rounded-2xl border border-white/10 hover:border-purple-500/40 transition-all">
+                    <div
+                        class="w-10 h-10 rounded-xl bg-purple-500/15 flex items-center justify-center text-purple-400 text-xl mb-4">
+                        <i class="fa-solid fa-spider"></i>
+                    </div>
+                    <h3 class="font-cinematic text-xl font-bold text-white mb-2">Sony Spider-Verse</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed mb-6">Tobey Maguire, Andrew Garfield, Tom Holland
+                        Spider-Man films, Venom trilogy, Madame Web, and Kraven.</p>
+                    <div
+                        class="flex items-center justify-between text-xs font-mono text-slate-300 pt-3 border-t border-white/10">
+                        <span>Archive Count:</span>
+                        <strong class="text-purple-400">16 Titles</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- COLLECTOR DETAIL MODAL -->
+    <div id="detailModal"
+        class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md transition-opacity duration-300 opacity-0">
+        <div
+            class="relative w-full max-w-2xl glass-panel bg-spaceBlack/95 border border-white/15 rounded-3xl shadow-2xl overflow-hidden max-h-[85vh] flex flex-col">
+            <!-- Modal Header Poster Banner -->
+            <div
+                class="relative h-44 sm:h-56 w-full overflow-hidden bg-gradient-to-r from-spaceBlack via-marvelRed/15 to-spaceBlack">
+                <div id="modalBannerBg" class="absolute inset-0 bg-cover bg-center opacity-30"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-spaceBlack via-spaceBlack/60 to-transparent"></div>
+
+                <!-- Close Button -->
+                <button onclick="closeModal()"
+                    class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-black/60 border border-white/20 text-white flex items-center justify-center hover:bg-marvelRed transition-colors text-sm">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+                <div class="absolute bottom-4 left-6 right-6 flex items-end justify-between">
+                    <div id="modalBadgeContainer" class="flex flex-wrap gap-2"></div>
+                </div>
+            </div>
+
+            <!-- Modal Content -->
+            <div class="p-6 overflow-y-auto custom-scrollbar space-y-5">
+                <div>
+                    <h2 id="modalTitle" class="font-cinematic text-2xl sm:text-3xl font-bold text-white">Title
+                        Placeholder</h2>
+                    <p id="modalSubtitle" class="text-xs text-marvelRed font-mono font-medium mt-1">2008 • Marvel
+                        Studios</p>
+                </div>
+
+                <div
+                    class="grid grid-cols-2 sm:grid-cols-5 gap-2.5 bg-white/5 border border-white/10 p-3 rounded-xl text-xs font-mono">
+                    <div>
+                        <span class="text-slate-400 block text-[9px] uppercase">Format</span>
+                        <strong id="modalType" class="text-white">Movie</strong>
+                    </div>
+                    <div>
+                        <span class="text-slate-400 block text-[9px] uppercase">Year</span>
+                        <strong id="modalYear" class="text-white">2008</strong>
+                    </div>
+                    <div>
+                        <span class="text-slate-400 block text-[9px] uppercase">Studio</span>
+                        <strong id="modalStudio" class="text-white">Marvel Studios</strong>
+                    </div>
+                    <div>
+                        <span class="text-slate-400 block text-[9px] uppercase">Universe</span>
+                        <strong id="modalUniverse" class="text-marvelGold">MCU</strong>
+                    </div>
+                    <div>
+                        <span class="text-slate-400 block text-[9px] uppercase">Priority</span>
+                        <div id="modalPriority" class="mt-0.5"></div>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-[10px] uppercase font-mono tracking-widest text-slate-400 mb-1.5">Overview &
+                        Synopsis</h4>
+                    <p id="modalDescription" class="text-slate-300 text-xs sm:text-sm leading-relaxed">Description
+                        content goes here.</p>
+                </div>
+
+                <div>
+                    <h4 class="text-[10px] uppercase font-mono tracking-widest text-slate-400 mb-2">Key Characters</h4>
+                    <div id="modalCharacters" class="flex flex-wrap gap-1.5"></div>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div
+                class="p-4 bg-white/5 border-t border-white/10 flex items-center justify-between text-xs text-slate-400 font-mono">
+                <span>MARVEL COLLECTOR VAULT #<span id="modalId">00</span></span>
+                <button onclick="closeModal()"
+                    class="px-4 py-1.5 bg-marvelRed text-white font-semibold rounded-lg hover:bg-marvelDarkRed transition-colors">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-spaceBlack border-t border-white/10 py-10 px-4 relative z-10 text-slate-400 text-xs">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <div class="bg-marvelRed text-white font-marvel text-lg px-2 py-0.5 rounded">MARVEL</div>
+                <div>
+                    <p class="font-cinematic font-bold text-white text-xs">TIMELINE TRIBUTE (2000–2026)</p>
+                    <p class="text-[10px] text-slate-500">Standalone GitHub Pages Archive</p>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center gap-6 font-medium text-slate-300 text-xs">
+                <a href="#home" class="hover:text-white transition-colors">Home</a>
+                <a href="#controls" class="hover:text-white transition-colors">Timeline</a>
+                <a href="#eras" class="hover:text-white transition-colors">Eras</a>
+                <a href="#universes" class="hover:text-white transition-colors">Universes</a>
+                <a href="#home" class="text-marvelRed hover:underline"><i class="fa-solid fa-arrow-up"></i> Top</a>
+            </div>
+
+            <div class="text-center md:text-right text-[10px] text-slate-500">
+                <p>© 2000–2026 Marvel Fan Tribute. All live-action titles included chronologically.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT DATA & LOGIC -->
+    <script>
+        /* ==========================================================================
+           EXACT MARVEL DATASET (2000 - 2026) WITH STANDARDIZED [TITLE][YEAR].JPG POSTERS
+           ========================================================================== */
+        /* PRIORITY LABELS */
+        const PRIORITY_LABELS = {
+            1: { label: "Must Watch", icon: "fa-fire", color: "bg-red-500/20 text-red-400 border-red-500/40" },
+            2: { label: "Should Watch", icon: "fa-star", color: "bg-amber-500/20 text-amber-400 border-amber-500/40" },
+            3: { label: "Good Watch", icon: "fa-thumbs-up", color: "bg-emerald-500/20 text-emerald-400 border-emerald-500/40" },
+            4: { label: "Maybe Watch", icon: "fa-circle-question", color: "bg-sky-500/20 text-sky-400 border-sky-500/40" },
+            5: { label: "You Can Skip", icon: "fa-forward", color: "bg-slate-500/20 text-slate-400 border-slate-500/40" }
+        };
+
+        /* PRIORITY BADGE HELPER */
+        function getPriorityBadgeHTML(priority) {
+            const p = PRIORITY_LABELS[priority] || PRIORITY_LABELS[1];
+            return `<span class="inline-flex items-center gap-1 text-[10px] font-semibold border px-2 py-0.5 rounded-full ${p.color}" title="Priority Level ${priority}: ${p.label}">
+                <i class="fa-solid ${p.icon} text-[9px]"></i>
+                ${p.label}
+            </span>`;
+        }
+
+        /* ==========================================================================
+   EXACT MARVEL DATASET (2000 - 2026) WITH ASSIGNED PRIORITY LEVELS
+   ========================================================================== */
+        const marvelData = [
+            // ERA 1 — FOX & EARLY MARVEL (2000–2007)
+            { id: 1, year: 2000, title: "X-Men", poster: "posters/xmen2000.jpg", type: "Movie", universe: "Fox", era: "Fox & Early Marvel", studio: "20th Century Fox", description: "Mutants Wolverine and Rogue join Xavier's X-Men to counter Magneto's Brotherhood.", characters: ["Wolverine", "Professor X", "Magneto", "Rogue", "Storm"], priority: 2 },
+            { id: 2, year: 2002, title: "Spider-Man", poster: "posters/spiderman2002.jpg", type: "Movie", universe: "Sony", era: "Fox & Early Marvel", studio: "Sony Pictures", description: "Peter Parker gains spider powers and battles the Green Goblin in New York.", characters: ["Peter Parker / Spider-Man", "Green Goblin", "Mary Jane Watson"], priority: 1 },
+            { id: 3, year: 2003, title: "Daredevil", poster: "posters/daredevil2003.jpg", type: "Movie", universe: "Fox", era: "Fox & Early Marvel", studio: "20th Century Fox", description: "Blind lawyer Matt Murdock fights crime in Hell's Kitchen as Daredevil.", characters: ["Matt Murdock / Daredevil", "Elektra", "Bullseye", "Kingpin"], priority: 4 },
+            { id: 4, year: 2003, title: "X2: X-Men United", poster: "posters/x2xmenunited2003.jpg", type: "Movie", universe: "Fox", era: "Fox & Early Marvel", studio: "20th Century Fox", description: "The X-Men team up with Magneto to defeat anti-mutant military scientist William Stryker.", characters: ["Wolverine", "Nightcrawler", "Jean Grey", "Magneto"], priority: 2 },
+            { id: 5, year: 2003, title: "Hulk", poster: "posters/hulk2003.jpg", type: "Movie", universe: "Universal", era: "Fox & Early Marvel", studio: "Universal Pictures", description: "Gamma radiation triggers Bruce Banner's transformation into the green behemoth Hulk.", characters: ["Bruce Banner / Hulk", "Betty Ross", "General Ross"], priority: 3 },
+            { id: 6, year: 2004, title: "Spider-Man 2", poster: "posters/spiderman22004.jpg", type: "Movie", universe: "Sony", era: "Fox & Early Marvel", studio: "Sony Pictures", description: "Peter Parker struggles with his powers while taking on tragic villain Doctor Octopus.", characters: ["Peter Parker", "Otto Octavius / Doc Ock", "Mary Jane"], priority: 1 },
+            { id: 7, year: 2005, title: "Elektra", poster: "posters/elektra2005.jpg", type: "Movie", universe: "Fox", era: "Fox & Early Marvel", studio: "20th Century Fox", description: "Assassin Elektra Natchios protects a father and daughter from the Hand ninja clan.", characters: ["Elektra Natchios", "Stick", "Kirigi"], priority: 4 },
+            { id: 8, year: 2005, title: "Fantastic Four", poster: "posters/fantasticfour2005.jpg", type: "Movie", universe: "Fox", era: "Fox & Early Marvel", studio: "20th Century Fox", description: "Four astronauts gain cosmic abilities and defend Earth from Doctor Doom.", characters: ["Reed Richards", "Sue Storm", "Johnny Storm", "Ben Grimm", "Doctor Doom"], priority: 2 },
+            { id: 9, year: 2006, title: "X-Men: The Last Stand", poster: "posters/xmenlaststand2006.jpg", type: "Movie", universe: "Fox", era: "Fox & Early Marvel", studio: "20th Century Fox", description: "A mutant cure causes conflict as Jean Grey resurfaces as the destructive Dark Phoenix.", characters: ["Wolverine", "Jean Grey / Dark Phoenix", "Magneto", "Beast"], priority: 2 },
+            { id: 10, year: 2007, title: "Ghost Rider", poster: "posters/ghostrider2007.jpg", type: "Movie", universe: "Sony", era: "Fox & Early Marvel", studio: "Sony Pictures", description: "Stunt cyclist Johnny Blaze sells his soul to become Mephistopheles' flaming vigilante.", characters: ["Johnny Blaze / Ghost Rider", "Roxanne Simpson", "Blackheart"], priority: 3 },
+            { id: 11, year: 2007, title: "Spider-Man 3", poster: "posters/spiderman32007.jpg", type: "Movie", universe: "Sony", era: "Fox & Early Marvel", studio: "Sony Pictures", description: "Peter Parker faces an alien symbiote while battling Sandman and Venom.", characters: ["Peter Parker", "Venom", "Sandman", "New Goblin"], priority: 1 },
+            { id: 12, year: 2007, title: "Fantastic Four: Rise of the Silver Surfer", poster: "posters/fantasticfourrisesilversurfer2007.jpg", type: "Movie", universe: "Fox", era: "Fox & Early Marvel", studio: "20th Century Fox", description: "The Fantastic Four encounter the Silver Surfer and cosmic entity Galactus.", characters: ["Fantastic Four", "Silver Surfer", "Galactus"], priority: 2 },
+
+            // ERA 2 — MARVEL STUDIOS BEGINS (2008–2012)
+            { id: 13, year: 2008, title: "Iron Man", poster: "posters/ironman2008.jpg", type: "Movie", universe: "MCU", era: "Marvel Studios Begins", studio: "Marvel Studios", description: "Tony Stark builds a high-tech suit of armor, launching the Marvel Cinematic Universe.", characters: ["Tony Stark / Iron Man", "Pepper Potts", "Obadiah Stane"], priority: 1 },
+            { id: 14, year: 2008, title: "The Incredible Hulk", poster: "posters/incrediblehulk2008.jpg", type: "Movie", universe: "MCU", era: "Marvel Studios Begins", studio: "Marvel Studios", description: "Bruce Banner flees military pursuit while facing the monstrous Abomination.", characters: ["Bruce Banner / Hulk", "Emil Blonsky / Abomination", "General Ross"], priority: 2 },
+            { id: 15, year: 2009, title: "X-Men Origins: Wolverine", poster: "posters/xmenoriginswolverine2009.jpg", type: "Movie", universe: "Fox", era: "Fox & Early Marvel", studio: "20th Century Fox", description: "Logan's early life, mutant brotherhood with Sabretooth, and the Weapon X program.", characters: ["Wolverine", "Sabretooth", "Deadpool", "Gambit"], priority: 2 },
+            { id: 16, year: 2010, title: "Iron Man 2", poster: "posters/ironman22010.jpg", type: "Movie", universe: "MCU", era: "Marvel Studios Begins", studio: "Marvel Studios", description: "Tony Stark confronts government pressure and vengeful scientist Whiplash.", characters: ["Tony Stark", "Black Widow", "Whiplash", "War Machine"], priority: 1 },
+            { id: 17, year: 2011, title: "Thor", poster: "posters/thor2011.jpg", type: "Movie", universe: "MCU", era: "Marvel Studios Begins", studio: "Marvel Studios", description: "Banished god Thor learns humility on Earth to stop his scheming brother Loki.", characters: ["Thor", "Loki", "Jane Foster", "Odin"], priority: 1 },
+            { id: 18, year: 2011, title: "X-Men: First Class", poster: "posters/xmenfirstclass2011.jpg", type: "Movie", universe: "Fox", era: "Fox & Early Marvel", studio: "20th Century Fox", description: "In 1962, Xavier and Magneto recruit mutants to stop World War III.", characters: ["Charles Xavier", "Erik Lehnsherr / Magneto", "Mystique"], priority: 2 },
+            { id: 19, year: 2011, title: "Captain America: The First Avenger", poster: "posters/captainamericafirstavenger2011.jpg", type: "Movie", universe: "MCU", era: "Marvel Studios Begins", studio: "Marvel Studios", description: "Steve Rogers undergoes the Super Soldier program during WWII to fight HYDRA.", characters: ["Steve Rogers / Captain America", "Peggy Carter", "Red Skull"], priority: 1 },
+            { id: 20, year: 2012, title: "The Avengers", poster: "posters/avengers2012.jpg", type: "Movie", universe: "MCU", era: "Marvel Studios Begins", studio: "Marvel Studios", description: "Earth's mightiest heroes assemble to prevent Loki from conquering New York.", characters: ["Iron Man", "Captain America", "Thor", "Hulk", "Black Widow", "Hawkeye"], priority: 1 },
+            { id: 21, year: 2012, title: "The Amazing Spider-Man", poster: "posters/amazingspiderman2012.jpg", type: "Movie", universe: "Sony", era: "Fox & Early Marvel", studio: "Sony Pictures", description: "Peter Parker investigates his parents' past while taking on Dr. Curt Connors (Lizard).", characters: ["Peter Parker", "Gwen Stacy", "Dr. Curt Connors / Lizard"], priority: 1 },
+
+            // ERA 3 — TELEVISION EXPANSION (2013 - 2020)
+            { id: 22, year: 2013, title: "Iron Man 3", poster: "posters/ironman32013.jpg", type: "Movie", universe: "MCU", era: "Television Expansion", studio: "Marvel Studios", description: "Tony Stark deals with post-New York trauma while battling the Mandarin.", characters: ["Tony Stark", "The Mandarin", "Aldrich Killian"], priority: 1 },
+            { id: 23, year: 2013, title: "Thor: The Dark World", poster: "posters/thordarkworld2013.jpg", type: "Movie", universe: "MCU", era: "Television Expansion", studio: "Marvel Studios", description: "Thor teams up with Loki to defeat Malekith and secure the Reality Stone.", characters: ["Thor", "Loki", "Jane Foster", "Malekith"], priority: 1 },
+            { id: 24, year: 2013, title: "The Wolverine", poster: "posters/thewolverine2013.jpg", type: "Movie", universe: "Fox", era: "Television Expansion", studio: "20th Century Fox", description: "Logan travels to Japan to face deadly samurai mutants and immortal rivals.", characters: ["Wolverine", "Yukio", "Viper", "Silver Samurai"], priority: 2 },
+            { id: 25, year: 2013, title: "Agents of S.H.I.E.L.D. Season 1", poster: "posters/agentsofshields12013.jpg", type: "Series", universe: "Marvel TV", era: "Television Expansion", studio: "Marvel Television", description: "Phil Coulson puts together a secret squad to handle superhuman events.", characters: ["Phil Coulson", "Daisy Johnson", "Melinda May", "Ward"], priority: 3 },
+            { id: 26, year: 2014, title: "Captain America: The Winter Soldier", poster: "posters/captainamericawintersoldier2014.jpg", type: "Movie", universe: "MCU", era: "Television Expansion", studio: "Marvel Studios", description: "Steve Rogers uncovers HYDRA inside S.H.I.E.L.D. and faces Bucky Barnes.", characters: ["Captain America", "Black Widow", "Falcon", "Winter Soldier"], priority: 1 },
+            { id: 27, year: 2014, title: "The Amazing Spider-Man 2", poster: "posters/amazingspiderman22014.jpg", type: "Movie", universe: "Sony", era: "Television Expansion", studio: "Sony Pictures", description: "Spider-Man confronts Electro, Green Goblin, and personal tragedy.", characters: ["Peter Parker", "Gwen Stacy", "Electro", "Harry Osborn"], priority: 1 },
+            { id: 28, year: 2014, title: "X-Men: Days of Future Past", poster: "posters/xmendaysoffuturepast2014.jpg", type: "Movie", universe: "Fox", era: "Television Expansion", studio: "20th Century Fox", description: "Wolverine travels back to 1973 to prevent mutant annihilation by Sentinels.", characters: ["Wolverine", "Charles Xavier", "Magneto", "Mystique"], priority: 2 },
+            { id: 29, year: 2014, title: "Guardians of the Galaxy", poster: "posters/guardiansofthegalaxy2014.jpg", type: "Movie", universe: "MCU", era: "Television Expansion", studio: "Marvel Studios", description: "Intergalactic misfits unite to protect the Power Stone from Ronan.", characters: ["Star-Lord", "Gamora", "Drax", "Rocket", "Groot"], priority: 1 },
+            { id: 30, year: 2014, title: "Agents of S.H.I.E.L.D. Season 2", poster: "posters/agentsofshields22014.jpg", type: "Series", universe: "Marvel TV", era: "Television Expansion", studio: "Marvel Television", description: "The team uncovers Inhuman heritage and ancient alien Kree obelisks.", characters: ["Phil Coulson", "Daisy Johnson", "Mockingbird", "Hunter"], priority: 3 },
+            { id: 31, year: 2015, title: "Agent Carter Season 1", poster: "posters/agentcarters12015.jpg", type: "Series", universe: "Marvel TV", era: "Television Expansion", studio: "Marvel Television", description: "Peggy Carter undertakes covert missions for Howard Stark in 1946.", characters: ["Peggy Carter", "Jarvis", "Howard Stark"], priority: 3 },
+            { id: 32, year: 2015, title: "Daredevil Season 1", poster: "posters/daredevils12015.jpg", type: "Series", universe: "Marvel TV", era: "Television Expansion", studio: "Netflix / Marvel TV", description: "Blind lawyer Matt Murdock fights Wilson Fisk in gritty Hell's Kitchen.", characters: ["Matt Murdock / Daredevil", "Wilson Fisk / Kingpin", "Foggy", "Karen"], priority: 1 },
+            { id: 33, year: 2015, title: "Avengers: Age of Ultron", poster: "posters/avengersageofultron2015.jpg", type: "Movie", universe: "MCU", era: "Television Expansion", studio: "Marvel Studios", description: "The Avengers battle rogue AI Ultron to save humanity from destruction.", characters: ["Iron Man", "Captain America", "Thor", "Wanda", "Vision", "Ultron"], priority: 1 },
+            { id: 34, year: 2015, title: "Ant-Man", poster: "posters/antman2015.jpg", type: "Movie", universe: "MCU", era: "Television Expansion", studio: "Marvel Studios", description: "Scott Lang uses Hank Pym's shrinking tech for a high-stakes heist.", characters: ["Scott Lang / Ant-Man", "Hank Pym", "Hope van Dyne"], priority: 1 },
+            { id: 35, year: 2015, title: "Fantastic Four", poster: "posters/fantasticfour2015.jpg", type: "Movie", universe: "Fox", era: "Television Expansion", studio: "20th Century Fox", description: "A modern reboot of the Fantastic Four after inter-dimensional teleportation.", characters: ["Reed Richards", "Sue Storm", "Johnny Storm", "Ben Grimm"], priority: 2 },
+            { id: 36, year: 2015, title: "Agents of S.H.I.E.L.D. Season 3", poster: "posters/agentsofshields32015.jpg", type: "Series", universe: "Marvel TV", era: "Television Expansion", studio: "Marvel Television", description: "Inhumans multiply on Earth while ancient Kree parasite Hive threatens all.", characters: ["Coulson", "Daisy", "Hive", "Lincoln"], priority: 3 },
+            { id: 37, year: 2015, title: "Jessica Jones Season 1", poster: "posters/jessicajoness12015.jpg", type: "Series", universe: "Marvel TV", era: "Television Expansion", studio: "Netflix / Marvel TV", description: "Private eye Jessica Jones faces mind-controlling tormentor Kilgrave.", characters: ["Jessica Jones", "Kilgrave", "Luke Cage", "Trish Walker"], priority: 2 },
+            { id: 38, year: 2016, title: "Agent Carter Season 2", poster: "posters/agentcarters22016.jpg", type: "Series", universe: "Marvel TV", era: "Television Expansion", studio: "Marvel Television", description: "Peggy moves to Los Angeles to investigate Zero Matter cosmic threat.", characters: ["Peggy Carter", "Jarvis", "Whitney Frost"], priority: 4 },
+            { id: 39, year: 2016, title: "Deadpool", poster: "posters/deadpool2016.jpg", type: "Movie", universe: "Fox", era: "Television Expansion", studio: "20th Century Fox", description: "Mercenary Wade Wilson hunts down the scientist who gave him mutant healing.", characters: ["Wade Wilson / Deadpool", "Vanessa", "Colossus"], priority: 2 },
+            { id: 40, year: 2016, title: "Daredevil Season 2", poster: "posters/daredevils22016.jpg", type: "Series", universe: "Marvel TV", era: "Television Expansion", studio: "Netflix / Marvel TV", description: "Daredevil collides with vigilante Punisher and ancient ninja order The Hand.", characters: ["Daredevil", "Frank Castle / Punisher", "Elektra"], priority: 1 },
+            { id: 41, year: 2016, title: "Captain America: Civil War", poster: "posters/captainamericacivilwar2016.jpg", type: "Movie", universe: "MCU", era: "Television Expansion", studio: "Marvel Studios", description: "Sokovia Accords split the Avengers into Cap and Iron Man factions.", characters: ["Captain America", "Iron Man", "Black Panther", "Spider-Man"], priority: 1 },
+            { id: 42, year: 2016, title: "X-Men: Apocalypse", poster: "posters/xmenapocalypse2016.jpg", type: "Movie", universe: "Fox", era: "Television Expansion", studio: "20th Century Fox", description: "Ancient mutant Apocalypse awakens in 1983 to cleanse Earth.", characters: ["Apocalypse", "Charles Xavier", "Magneto", "Cyclops"], priority: 2 },
+            { id: 43, year: 2016, title: "Luke Cage Season 1", poster: "posters/lukecages12016.jpg", type: "Series", universe: "Marvel TV", era: "Television Expansion", studio: "Netflix / Marvel TV", description: "Bulletproof Luke Cage defends Harlem from Cottonmouth and Diamondback.", characters: ["Luke Cage", "Cottonmouth", "Misty Knight", "Mariah Dillard"], priority: 2 },
+            { id: 44, year: 2016, title: "Doctor Strange", poster: "posters/doctorstrange2016.jpg", type: "Movie", universe: "MCU", era: "Television Expansion", studio: "Marvel Studios", description: "Dr. Stephen Strange learns mystic arts after a tragic accident.", characters: ["Stephen Strange", "Wong", "The Ancient One", "Kaecilius"], priority: 1 },
+            { id: 45, year: 2016, title: "Agents of S.H.I.E.L.D. Season 4", poster: "posters/agentsofshields42016.jpg", type: "Series", universe: "Marvel TV", era: "Television Expansion", studio: "Marvel Television", description: "Ghost Rider, LMD Androids, and the virtual Framework reality.", characters: ["Coulson", "Robbie Reyes / Ghost Rider", "AIDA"], priority: 3 },
+            { id: 46, year: 2017, title: "Logan", poster: "posters/logan2017.jpg", type: "Movie", universe: "Fox", era: "Television Expansion", studio: "20th Century Fox", description: "An aging Wolverine and Xavier protect young mutant X-23 in a bleak future.", characters: ["Wolverine", "Charles Xavier", "Laura / X-23"], priority: 2 },
+            { id: 47, year: 2017, title: "Iron Fist Season 1", poster: "posters/ironfists12017.jpg", type: "Series", universe: "Marvel TV", era: "Television Expansion", studio: "Netflix / Marvel TV", description: "Danny Rand returns to New York with the mystical power of the Iron Fist.", characters: ["Danny Rand / Iron Fist", "Colleen Wing", "Ward Meachum"], priority: 4 },
+            { id: 48, year: 2017, title: "Guardians of the Galaxy Vol. 2", poster: "posters/guardiansofthegalaxyvol22017.jpg", type: "Movie", universe: "MCU", era: "Television Expansion", studio: "Marvel Studios", description: "Peter Quill discovers his cosmic origins from living planet father Ego.", characters: ["Star-Lord", "Ego", "Gamora", "Rocket", "Mantis"], priority: 1 },
+            { id: 49, year: 2017, title: "Spider-Man: Homecoming", poster: "posters/spidermanhomecoming2017.jpg", type: "Movie", universe: "MCU", era: "Television Expansion", studio: "Marvel Studios / Sony", description: "High schooler Peter Parker takes on illegal weapons dealer Vulture.", characters: ["Peter Parker", "Tony Stark", "Adrian Toomes / Vulture"], priority: 1 },
+            { id: 50, year: 2017, title: "The Defenders", poster: "posters/thedefenders2017.jpg", type: "Series", universe: "Marvel TV", era: "Television Expansion", studio: "Netflix / Marvel TV", description: "Daredevil, Jessica Jones, Luke Cage, and Iron Fist unite against The Hand.", characters: ["Daredevil", "Jessica Jones", "Luke Cage", "Iron Fist", "Alexandra"], priority: 2 },
+            { id: 51, year: 2017, title: "Inhumans Season 1", poster: "posters/inhumanss12017.jpg", type: "Series", universe: "Marvel TV", era: "Television Expansion", studio: "Marvel Television", description: "The Inhuman Royal Family flees a military coup in Attilan to Hawaii.", characters: ["Black Bolt", "Medusa", "Maximus"], priority: 5 },
+            { id: 52, year: 2017, title: "The Gifted Season 1", poster: "posters/thegifteds12017.jpg", type: "Series", universe: "Marvel TV", era: "Television Expansion", studio: "Fox / Marvel TV", description: "Parents go on the run to protect their mutant children from Sentinel Services.", characters: ["Polaris", "Blink", "Thunderbird", "Reed Strucker"], priority: 5 },
+            { id: 53, year: 2017, title: "Thor: Ragnarok", poster: "posters/thorragnarok2017.jpg", type: "Movie", universe: "MCU", era: "Television Expansion", studio: "Marvel Studios", description: "Thor is stranded on Sakaar fighting Hulk before saving Asgard from Hela.", characters: ["Thor", "Hulk", "Loki", "Valkyrie", "Hela"], priority: 1 },
+            { id: 54, year: 2017, title: "The Punisher Season 1", poster: "posters/thepunishers12017.jpg", type: "Series", universe: "Marvel TV", era: "Television Expansion", studio: "Netflix / Marvel TV", description: "Frank Castle uncovers military conspiracy connected to his family's murder.", characters: ["Frank Castle", "Micro", "Billy Russo / Jigsaw"], priority: 2 },
+            { id: 55, year: 2017, title: "Runaways Season 1", poster: "posters/runawayss12017.jpg", type: "Series", universe: "Marvel TV", era: "Television Expansion", studio: "Marvel Television", description: "Six teens unite against their villainous parents who belong to Pride cult.", characters: ["Nico Minoru", "Alex Wilder", "Karolina Dean"], priority: 4 },
+            { id: 56, year: 2017, title: "Agents of S.H.I.E.L.D. Season 5", poster: "posters/agentsofshields52017.jpg", type: "Series", universe: "Marvel TV", era: "Television Expansion", studio: "Marvel Television", description: "The team is transported to a dystopian future where Earth was destroyed.", characters: ["Coulson", "Daisy", "Mack", "Talbot"], priority: 3 },
+            { id: 57, year: 2018, title: "Black Panther", poster: "posters/blackpanther2018.jpg", type: "Movie", universe: "MCU", era: "Television Expansion", studio: "Marvel Studios", description: "T'Challa assumes Wakanda's throne, challenged by Erik Killmonger.", characters: ["T'Challa", "Killmonger", "Nakia", "Okoye", "Shuri"], priority: 1 },
+            { id: 58, year: 2018, title: "Jessica Jones Season 2", poster: "posters/jessicajoness22018.jpg", type: "Series", universe: "Marvel TV", era: "Television Expansion", studio: "Netflix / Marvel TV", description: "Jessica explores the origins of IGH super-experiments and her mother.", characters: ["Jessica Jones", "Alisa Jones", "Trish Walker"], priority: 3 },
+            { id: 59, year: 2018, title: "Avengers: Infinity War", poster: "posters/avengersinfinitywar2018.jpg", type: "Movie", universe: "MCU", era: "Television Expansion", studio: "Marvel Studios", description: "Thanos collects all six Infinity Stones leading to the fatal universe snap.", characters: ["Thanos", "Iron Man", "Thor", "Cap", "Dr. Strange"], priority: 1 },
+            { id: 60, year: 2018, title: "Deadpool 2", poster: "posters/deadpool22018.jpg", type: "Movie", universe: "Fox", era: "Television Expansion", studio: "20th Century Fox", description: "Deadpool forms X-Force to protect mutant kid Russell from time-traveler Cable.", characters: ["Deadpool", "Cable", "Domino", "Firefist"], priority: 2 },
+            { id: 61, year: 2018, title: "Cloak & Dagger Season 1", poster: "posters/cloakanddaggers12018.jpg", type: "Series", universe: "Marvel TV", era: "Television Expansion", studio: "Marvel Television", description: "Tandy and Tyrone discover complementary light and dark powers in New Orleans.", characters: ["Tandy Bowen / Dagger", "Tyrone Johnson / Cloak"], priority: 4 },
+            { id: 62, year: 2018, title: "Luke Cage Season 2", poster: "posters/lukecages22018.jpg", type: "Series", universe: "Marvel TV", era: "Television Expansion", studio: "Netflix / Marvel TV", description: "Luke faces Bushmaster who uses Jamaican voodoo herbs to rival his invulnerability.", characters: ["Luke Cage", "Bushmaster", "Mariah Dillard"], priority: 4 },
+            { id: 63, year: 2018, title: "Ant-Man and the Wasp", poster: "posters/antmanandthewasp2018.jpg", type: "Movie", universe: "MCU", era: "Television Expansion", studio: "Marvel Studios", description: "Scott and Hope enter Quantum Realm to rescue Janet van Dyne.", characters: ["Scott Lang", "Hope van Dyne", "Ghost", "Hank Pym"], priority: 1 },
+            { id: 64, year: 2018, title: "Iron Fist Season 2", poster: "posters/ironfists22018.jpg", type: "Series", universe: "Marvel TV", era: "Television Expansion", studio: "Netflix / Marvel TV", description: "Danny Rand battles former brother Davos who steals the Iron Fist power.", characters: ["Danny Rand", "Colleen Wing", "Davos", "Typhoid Mary"], priority: 4 },
+            { id: 65, year: 2018, title: "Venom", poster: "posters/venom2018.jpg", type: "Movie", universe: "Sony", era: "Television Expansion", studio: "Sony Pictures", description: "Eddie Brock bonds with symbiote Venom to stop Carlton Drake.", characters: ["Eddie Brock / Venom", "Riot", "Anne Weying"], priority: 2 },
+            { id: 66, year: 2018, title: "Daredevil Season 3", poster: "posters/daredevils32018.jpg", type: "Series", universe: "Marvel TV", era: "Television Expansion", studio: "Netflix / Marvel TV", description: "Broken Matt Murdock resurfaces to stop Kingpin and impostor Bullseye.", characters: ["Daredevil", "Kingpin", "Pointdexter / Bullseye"], priority: 1 },
+            { id: 67, year: 2018, title: "Runaways Season 2", poster: "posters/runawayss22018.jpg", type: "Series", universe: "Marvel TV", era: "Television Expansion", studio: "Marvel Television", description: "The runaway teens live off-grid while uncovering alien Jonah's true plan.", characters: ["Nico", "Alex", "Jonah", "Karolina"], priority: 5 },
+            { id: 68, year: 2018, title: "The Gifted Season 2", poster: "posters/thegifteds22018.jpg", type: "Series", universe: "Marvel TV", era: "Television Expansion", studio: "Fox / Marvel TV", description: "The Mutant Underground splits over ideological war between factions.", characters: ["Polaris", "Reeva Payge", "Eclipse"], priority: 5 },
+            { id: 69, year: 2018, title: "Spider-Man: Into the Spider-Verse", poster: "posters/intothespiderverse2018.jpg", type: "Animation", universe: "Sony", era: "Television Expansion", studio: "Sony Pictures Animation", description: "Teen Miles Morales becomes the new Spider-Man and unites with alternate realities.", characters: ["Miles Morales", "Peter B. Parker", "Gwen Stacy", "Kingpin"], priority: 1 },
+
+            { id: 70, year: 2019, title: "The Punisher Season 2", poster: "posters/thepunishers22019.jpg", type: "Series", universe: "Marvel TV", era: "Television Expansion", studio: "Netflix / Marvel TV", description: "Frank protects a teenager target while finishing business with Jigsaw.", characters: ["Frank Castle", "Billy Russo / Jigsaw", "John Pilgrim"], priority: 2 },
+            { id: 71, year: 2019, title: "Captain Marvel", poster: "posters/captainmarvel2019.jpg", type: "Movie", universe: "MCU", era: "Television Expansion", studio: "Marvel Studios", description: "Kree warrior Vers recovers memories as Carol Danvers in 1995.", characters: ["Carol Danvers", "Nick Fury", "Talos", "Ronan"], priority: 1 },
+            { id: 72, year: 2019, title: "Cloak & Dagger Season 2", poster: "posters/cloakanddaggers22019.jpg", type: "Series", universe: "Marvel TV", era: "Television Expansion", studio: "Marvel Television", description: "The duo fight human trafficking rings and vigilante Mayhem.", characters: ["Cloak", "Dagger", "Mayhem"], priority: 5 },
+            { id: 73, year: 2019, title: "Avengers: Endgame", poster: "posters/avengersendgame2019.jpg", type: "Movie", universe: "MCU", era: "Television Expansion", studio: "Marvel Studios", description: "Surviving heroes execute a quantum time heist to reverse Thanos' snap.", characters: ["Iron Man", "Cap", "Thor", "Black Widow", "Hawkeye", "Hulk"], priority: 1 },
+            { id: 74, year: 2019, title: "Agents of S.H.I.E.L.D. Season 6", poster: "posters/agentsofshields62019.jpg", type: "Series", universe: "Marvel TV", era: "Television Expansion", studio: "Marvel Television", description: "The team defends Earth against alien parasite Izel and Sarge.", characters: ["Daisy", "Mack", "Sarge", "Fitz-Simmons"], priority: 3 },
+            { id: 75, year: 2019, title: "Dark Phoenix", poster: "posters/darkphoenix2019.jpg", type: "Movie", universe: "Fox", era: "Television Expansion", studio: "20th Century Fox", description: "Jean Grey absorbs cosmic solar flare becoming Dark Phoenix in 1992.", characters: ["Jean Grey", "Wolverine", "Magneto", "Charles Xavier"], priority: 2 },
+            { id: 76, year: 2019, title: "Spider-Man: Far From Home", poster: "posters/spidermanfarfromhome2019.jpg", type: "Movie", universe: "MCU", era: "Television Expansion", studio: "Marvel Studios / Sony", description: "Peter Parker goes on a European school trip, misled by Mysterio.", characters: ["Peter Parker", "Mysterio", "Nick Fury", "MJ"], priority: 1 },
+            { id: 77, year: 2019, title: "Jessica Jones Season 3", poster: "posters/jessicajoness32019.jpg", type: "Series", universe: "Marvel TV", era: "Television Expansion", studio: "Netflix / Marvel TV", description: "Jessica teams up with Trish before moral philosophies force them apart.", characters: ["Jessica Jones", "Trish Walker", "Salinger"], priority: 3 },
+            { id: 78, year: 2019, title: "Runaways Season 3", poster: "posters/runawayss32019.jpg", type: "Series", universe: "Marvel TV", era: "Television Expansion", studio: "Marvel Television", description: "The teens face Morgan le Fay and dark magic dimensional portals.", characters: ["Nico", "Morgan le Fay", "Cloak & Dagger guest"], priority: 5 },
+
+            { id: 79, year: 2020, title: "The New Mutants", poster: "posters/thenewmutants2020.jpg", type: "Movie", universe: "Fox", era: "Television Expansion", studio: "20th Century Studios", description: "Five young mutants discover their powers while trapped in a secret facility.", characters: ["Magik", "Wolfsbane", "Cannonball", "Mirage", "Sunspot"], priority: 5 },
+            { id: 80, year: 2020, title: "Agents of S.H.I.E.L.D. Season 7", poster: "posters/agentsofshields72020.jpg", type: "Series", universe: "Marvel TV", era: "Television Expansion", studio: "Marvel Television", description: "Time-traveling mission across Marvel history to defeat alien Chronicoms.", characters: ["Coulson LMD", "Daisy", "Sousa", "Mack"], priority: 3 },
+            { id: 81, year: 2020, title: "Helstrom", poster: "posters/helstrom2020.jpg", type: "Series", universe: "Marvel TV", era: "Television Expansion", studio: "Marvel Television", description: "Daimon and Ana Helstrom track down terrorizing demonic entities.", characters: ["Daimon Helstrom", "Ana Helstrom", "Victoria"], priority: 5 },
+
+            // ERA 4 — DISNEY+ BEGINS (2021 - 2024)
+            { id: 82, year: 2021, title: "WandaVision", poster: "posters/wandavision2021.jpg", type: "Series", universe: "MCU", era: "Disney+ Begins", studio: "Marvel Studios", description: "Wanda creates a hex sitcom reality, unlocking her identity as Scarlet Witch.", characters: ["Wanda Maximoff", "Vision", "Agatha Harkness", "Monica Rambeau"], priority: 1 },
+            { id: 83, year: 2021, title: "The Falcon and the Winter Soldier", poster: "posters/falconandwintersoldier2021.jpg", type: "Series", universe: "MCU", era: "Disney+ Begins", studio: "Marvel Studios", description: "Sam Wilson and Bucky Barnes team up to stop anti-patriot Flag Smashers.", characters: ["Sam Wilson", "Bucky Barnes", "John Walker", "Zemo"], priority: 1 },
+            { id: 84, year: 2021, title: "Loki Season 1", poster: "posters/lokis12021.jpg", type: "Series", universe: "MCU", era: "Disney+ Begins", studio: "Marvel Studios", description: "Loki is captured by the TVA and uncovers timekeeper conspiracy.", characters: ["Loki", "Sylvie", "Mobius", "He Who Remains"], priority: 1 },
+            { id: 85, year: 2021, title: "Black Widow", poster: "posters/blackwidow2021.jpg", type: "Movie", universe: "MCU", era: "Disney+ Begins", studio: "Marvel Studios", description: "Natasha Romanoff confronts dark history and Taskmaster prior to Infinity War.", characters: ["Natasha Romanoff", "Yelena Belova", "Red Guardian", "Taskmaster"], priority: 1 },
+            { id: 86, year: 2021, title: "What If...? Season 1 (Optional)", poster: "posters/whatifs12021.jpg", type: "Animation", universe: "MCU", era: "Disney+ Begins", studio: "Marvel Studios", description: "Animated multiverse takes exploring alternate timelines across reality.", characters: ["The Watcher", "Captain Carter", "Doctor Strange Supreme"], priority: 3 },
+            { id: 87, year: 2021, title: "Shang-Chi and the Legend of the Ten Rings", poster: "posters/shangchi2021.jpg", type: "Movie", universe: "MCU", era: "Disney+ Begins", studio: "Marvel Studios", description: "Shang-Chi confronts his father Wenwu and the ancient Ten Rings order.", characters: ["Shang-Chi", "Wenwu / Mandarin", "Katy", "Xialing"], priority: 1 },
+            { id: 88, year: 2021, title: "Venom: Let There Be Carnage", poster: "posters/venomlettherebecarnage2021.jpg", type: "Movie", universe: "Sony", era: "Disney+ Begins", studio: "Sony Pictures", description: "Eddie Brock and Venom fight serial killer Cletus Kasady and Carnage.", characters: ["Eddie Brock / Venom", "Cletus Kasady / Carnage", "Shriek"], priority: 2 },
+            { id: 89, year: 2021, title: "Eternals", poster: "posters/eternals2021.jpg", type: "Movie", universe: "MCU", era: "Disney+ Begins", studio: "Marvel Studios", description: "Ancient immortal heroes reunite to prevent the Emergence of a Celestial.", characters: ["Sersi", "Ikaris", "Thena", "Druig", "Arishem"], priority: 2 },
+            { id: 90, year: 2021, title: "Hawkeye", poster: "posters/hawkeye2021.jpg", type: "Series", universe: "MCU", era: "Disney+ Begins", studio: "Marvel Studios", description: "Clint Barton mentors Kate Bishop in New York at Christmas time.", characters: ["Clint Barton", "Kate Bishop", "Yelena Belova", "Kingpin"], priority: 1 },
+            { id: 91, year: 2021, title: "Spider-Man: No Way Home", poster: "posters/spidermannowayhome2021.jpg", type: "Movie", universe: "MCU", era: "Disney+ Begins", studio: "Marvel Studios / Sony", description: "Multiverse spell pulls three generations of Spider-Men into one reality.", characters: ["Tom Holland", "Tobey Maguire", "Andrew Garfield", "Green Goblin"], priority: 1 },
+
+            { id: 92, year: 2022, title: "Moon Knight", poster: "posters/moonknight2022.jpg", type: "Series", universe: "MCU", era: "Disney+ Begins", studio: "Marvel Studios", description: "Steven Grant discovers dissociative identity as avatar of Khonshu.", characters: ["Marc Spector / Moon Knight", "Arthur Harrow", "Layla"], priority: 2 },
+            { id: 93, year: 2022, title: "Morbius", poster: "posters/morbius2022.jpg", type: "Movie", universe: "Sony", era: "Disney+ Begins", studio: "Sony Pictures", description: "Biochemist Michael Morbius cures his blood disease, turning into a living vampire.", characters: ["Dr. Michael Morbius", "Milo", "Martine Bancroft"], priority: 5 },
+            { id: 94, year: 2022, title: "Ms. Marvel", poster: "posters/msmarvel2022.jpg", type: "Series", universe: "MCU", era: "Disney+ Begins", studio: "Marvel Studios", description: "Jersey City teen Kamala Khan gains cosmic hard-light powers from a bangle.", characters: ["Kamala Khan / Ms. Marvel", "Bruno", "Kamran"], priority: 1 },
+            { id: 95, year: 2022, title: "Doctor Strange in the Multiverse of Madness", poster: "posters/doctorstrangemultiverseofmadness2022.jpg", type: "Movie", universe: "MCU", era: "Disney+ Begins", studio: "Marvel Studios", description: "Dr. Strange protects America Chavez from corrupted Scarlet Witch.", characters: ["Dr. Strange", "Wanda Maximoff", "America Chavez", "Illuminati"], priority: 1 },
+            { id: 96, year: 2022, title: "Thor: Love and Thunder", poster: "posters/thorloveandthunder2022.jpg", type: "Movie", universe: "MCU", era: "Disney+ Begins", studio: "Marvel Studios", description: "Thor teams up with Mighty Thor Jane Foster to stop Gorr the God Butcher.", characters: ["Thor", "Jane Foster / Mighty Thor", "Gorr", "Valkyrie"], priority: 1 },
+            { id: 97, year: 2022, title: "I Am Groot Season 1 (Optional)", poster: "posters/iamgroots12022.jpg", type: "Animation", universe: "MCU", era: "Disney+ Begins", studio: "Marvel Studios", description: "Short animated adventures of Baby Groot in space.", characters: ["Baby Groot"], priority: 5 },
+            { id: 98, year: 2022, title: "She-Hulk: Attorney at Law", poster: "posters/shehulk2022.jpg", type: "Series", universe: "MCU", era: "Disney+ Begins", studio: "Marvel Studios", description: "Lawyer Jennifer Walters navigates life as a 6-foot-7 green superhero.", characters: ["Jennifer Walters / She-Hulk", "Bruce Banner", "Abomination", "Daredevil"], priority: 1 },
+            { id: 99, year: 2022, title: "Werewolf by Night", poster: "posters/werewolfbynight2022.jpg", type: "Special", universe: "MCU", era: "Disney+ Begins", studio: "Marvel Studios", description: "Black-and-white homage to classic horror monster hunters.", characters: ["Jack Russell", "Elsa Bloodstone", "Man-Thing"], priority: 3 },
+            { id: 100, year: 2022, title: "Black Panther: Wakanda Forever", poster: "posters/blackpantherwakandaforever2022.jpg", type: "Movie", universe: "MCU", era: "Disney+ Begins", studio: "Marvel Studios", description: "Wakanda defends its vibranium against undersea king Namor.", characters: ["Shuri", "Namor", "Ramonda", "Ironheart"], priority: 1 },
+            { id: 101, year: 2022, title: "Guardians of the Galaxy Holiday Special", poster: "posters/guardiansholidayspecial2022.jpg", type: "Special", universe: "MCU", era: "Disney+ Begins", studio: "Marvel Studios", description: "Drax and Mantis travel to Earth to kidnap Kevin Bacon for Peter Quill.", characters: ["Drax", "Mantis", "Peter Quill", "Kevin Bacon"], priority: 4 },
+
+            { id: 102, year: 2023, title: "Ant-Man and the Wasp: Quantumania", poster: "posters/antmanquantumania2023.jpg", type: "Movie", universe: "MCU", era: "Disney+ Begins", studio: "Marvel Studios", description: "The Ant-Family is pulled into Quantum Realm to face Kang the Conqueror.", characters: ["Scott Lang", "Hope van Dyne", "Kang", "MODOK"], priority: 1 },
+            { id: 103, year: 2023, title: "Guardians of the Galaxy Vol. 3", poster: "posters/guardiansvol32023.jpg", type: "Movie", universe: "MCU", era: "Disney+ Begins", studio: "Marvel Studios", description: "The Guardians rally on a mission to save Rocket from High Evolutionary.", characters: ["Star-Lord", "Rocket", "High Evolutionary", "Adam Warlock"], priority: 1 },
+            { id: 104, year: 2023, title: "Secret Invasion", poster: "posters/secretinvasion2023.jpg", type: "Series", universe: "MCU", era: "Disney+ Begins", studio: "Marvel Studios", description: "Nick Fury uncovers rogue Skrull shapeshifter infiltration on Earth.", characters: ["Nick Fury", "Talos", "Gravik", "G'iah"], priority: 1 },
+            { id: 105, year: 2023, title: "Loki Season 2", poster: "posters/lokis22023.jpg", type: "Series", universe: "MCU", era: "Disney+ Begins", studio: "Marvel Studios", description: "Loki travels through time slippage to stabilize temporal loom.", characters: ["Loki", "OB", "Mobius", "Sylvie"], priority: 1 },
+            { id: 106, year: 2023, title: "I Am Groot Season 2 (Optional)", poster: "posters/iamgroots22023.jpg", type: "Animation", universe: "MCU", era: "Disney+ Begins", studio: "Marvel Studios", description: "Baby Groot's continued animated interstellar misadventures.", characters: ["Baby Groot"], priority: 5 },
+            { id: 107, year: 2023, title: "Spider-Man: Across the Spider-Verse", poster: "posters/acrossthespiderverse2023.jpg", type: "Animation", universe: "Sony", era: "Disney+ Begins", studio: "Sony Pictures", description: "Miles Morales journeys across animated multiverse alongside Spider-Society.", characters: ["Miles Morales", "Gwen Stacy", "Spider-Man 2099"], priority: 1 },
+            { id: 108, year: 2023, title: "The Marvels", poster: "posters/themarvels2023.jpg", type: "Movie", universe: "MCU", era: "Disney+ Begins", studio: "Marvel Studios", description: "Carol, Kamala, and Monica find their powers entangled across space.", characters: ["Carol Danvers", "Kamala Khan", "Monica Rambeau", "Dar-Benn"], priority: 1 },
+            { id: 109, year: 2023, title: "Echo", poster: "posters/echo2023.jpg", type: "Series", universe: "MCU", era: "Disney+ Begins", studio: "Marvel Studios", description: "Maya Lopez returns to Oklahoma hunted by Wilson Fisk's criminal empire.", characters: ["Maya Lopez / Echo", "Kingpin", "Daredevil"], priority: 1 },
+            { id: 110, year: 2023, title: "What If...? Season 2 (Optional)", poster: "posters/whatifs22023.jpg", type: "Animation", universe: "MCU", era: "Disney+ Begins", studio: "Marvel Studios", description: "More multiversal twists on iconic MCU events.", characters: ["The Watcher", "Kahhori", "Captain Carter"], priority: 3 },
+
+            { id: 111, year: 2024, title: "Madame Web", poster: "posters/madameweb2024.jpg", type: "Movie", universe: "Sony", era: "Disney+ Begins", studio: "Sony Pictures", description: "Paramedic Cassandra Webb gains clairvoyance to protect three young women.", characters: ["Cassandra Webb", "Ezekiel Sims", "Julia Cornwall"], priority: 5 },
+            { id: 112, year: 2024, title: "X-Men '97 (Optional Animation)", poster: "posters/xmen972024.jpg", type: "Animation", universe: "Fox", era: "Disney+ Begins", studio: "Marvel Studios", description: "Direct continuation of classic 90s X-Men animated saga.", characters: ["Cyclops", "Storm", "Magneto", "Wolverine"], priority: 3 },
+            { id: 113, year: 2024, title: "Deadpool & Wolverine", poster: "posters/deadpoolwolverine2024.jpg", type: "Movie", universe: "MCU", era: "Disney+ Begins", studio: "Marvel Studios / Fox", description: "Deadpool teams with reluctant Wolverine from alternate reality to save home world.", characters: ["Deadpool", "Wolverine", "Cassandra Nova", "Gambit"], priority: 1 },
+            { id: 114, year: 2024, title: "Agatha All Along", poster: "posters/agathaallalong2024.jpg", type: "Series", universe: "MCU", era: "Disney+ Begins", studio: "Marvel Studios", description: "Agatha Harkness walks Witches' Road to reclaim lost magical powers.", characters: ["Agatha Harkness", "Billy Maximoff", "Rio Vidal / Death"], priority: 3 },
+            { id: 115, year: 2024, title: "Venom: The Last Dance", poster: "posters/venomthelastdance2024.jpg", type: "Movie", universe: "Sony", era: "Disney+ Begins", studio: "Sony Pictures", description: "Eddie Brock and Venom run from both human and alien symbiote hunters.", characters: ["Eddie Brock / Venom", "Knull", "Toxin"], priority: 2 },
+            { id: 116, year: 2024, title: "Kraven the Hunter", poster: "posters/kraventhehunter2024.jpg", type: "Movie", universe: "Sony", era: "Disney+ Begins", studio: "Sony Pictures", description: "Russian immigrant Sergei Kravinoff becomes world's greatest apex hunter.", characters: ["Kraven the Hunter", "Chameleon", "Rhino"], priority: 5 },
+
+            // ERA 5 — MULTIVERSE & BEYOND (2025 - 2026)
+            { id: 117, year: 2025, title: "Your Friendly Neighborhood Spider-Man (Optional)", poster: "posters/yourfriendlyneighborhoodspiderman2025.jpg", type: "Animation", universe: "MCU", era: "Multiverse & Beyond", studio: "Marvel Studios", description: "Animated origin exploring Peter Parker in alternate MCU timeline.", characters: ["Peter Parker", "Norman Osborn", "Doctor Octopus"], priority: 3 },
+            { id: 118, year: 2025, title: "Captain America: Brave New World", poster: "posters/captainamericabravenewworld2025.jpg", type: "Movie", universe: "MCU", era: "Multiverse & Beyond", studio: "Marvel Studios", description: "Sam Wilson navigates political conspiracy involving President Thaddeus Ross (Red Hulk).", characters: ["Sam Wilson / Cap", "Thaddeus Ross / Red Hulk", "The Leader"], priority: 1 },
+            { id: 119, year: 2025, title: "Daredevil: Born Again Season 1", poster: "posters/daredevilbornagain2025.jpg", type: "Series", universe: "MCU", era: "Multiverse & Beyond", studio: "Marvel Studios", description: "Matt Murdock and Mayor Wilson Fisk clash over New York street jurisdiction.", characters: ["Matt Murdock", "Wilson Fisk", "Punisher", "Bullseye"], priority: 1 },
+            { id: 120, year: 2025, title: "Thunderbolts*", poster: "posters/thunderbolts2025.jpg", type: "Movie", universe: "MCU", era: "Multiverse & Beyond", studio: "Marvel Studios", description: "Anti-heroes Yelena Belova, Bucky, and Red Guardian sent on secret ops.", characters: ["Yelena Belova", "Bucky Barnes", "Red Guardian", "Sentry"], priority: 1 },
+            { id: 121, year: 2025, title: "Ironheart", poster: "posters/ironheart2025.jpg", type: "Series", universe: "MCU", era: "Multiverse & Beyond", studio: "Marvel Studios", description: "Genius Riri Williams pits high-tech armor engineering against dark magic.", characters: ["Riri Williams / Ironheart", "The Hood", "Zelma Stanton"], priority: 1 },
+            { id: 122, year: 2025, title: "Fantastic Four: First Steps", poster: "posters/fantasticfourfirststeps2025.jpg", type: "Movie", universe: "MCU", era: "Multiverse & Beyond", studio: "Marvel Studios", description: "Marvel's First Family in retro 1960s universe faces Galactus.", characters: ["Reed Richards", "Sue Storm", "Johnny Storm", "Ben Grimm", "Galactus"], priority: 1 },
+            { id: 123, year: 2025, title: "Eyes of Wakanda (Optional Animation)", poster: "posters/eyesofwakanda2025.jpg", type: "Animation", universe: "MCU", era: "Multiverse & Beyond", studio: "Marvel Studios", description: "Warriors across Wakandan history retrieve dangerous vibranium artifacts.", characters: ["Hatut Zaraze", "War Dogs"], priority: 4 },
+            { id: 124, year: 2025, title: "Marvel Zombies (Optional Animation)", poster: "posters/marvelzombies2025.jpg", type: "Animation", universe: "MCU", era: "Multiverse & Beyond", studio: "Marvel Studios", description: "Surviving heroes fight undead Avengers in zombie outbreak.", characters: ["Shang-Chi", "Yelena", "Zombie Scarlet Witch"], priority: 4 },
+            { id: 125, year: 2025, title: "Wonder Man (Planned)", poster: "posters/wonderman2025.jpg", type: "Series", universe: "MCU", era: "Multiverse & Beyond", studio: "Marvel Studios", description: "Hollywood actor Simon Williams gains ionic superpowers in satire of showbiz.", characters: ["Simon Williams / Wonder Man", "Trevor Slattery"], priority: 4 },
+
+            { id: 126, year: 2026, title: "The Punisher: One Last Kill", poster: "posters/punisheronelastkill2026.jpg", type: "Special", universe: "MCU", era: "Multiverse & Beyond", studio: "Marvel Studios", description: "Frank Castle searches for meaning beyond revenge when crime boss Ma Gnucci forces him back into battle.", characters: ["Frank Castle / Punisher", "Ma Gnucci", "Karen Page"], priority: 2 },
+            { id: 127, year: 2026, title: "Spider-Man: Brand New Day", poster: "posters/spidermanbrandnewday2026.jpg", type: "Movie", universe: "MCU", era: "Multiverse & Beyond", studio: "Marvel Studios / Sony", description: "Fresh street-level Spider-Man chapter following No Way Home.", characters: ["Peter Parker / Spider-Man"], priority: 1 },
+            { id: 128, year: 2026, title: "Vision Quest", poster: "posters/visionquest2026.jpg", type: "Series", universe: "MCU", era: "Multiverse & Beyond", studio: "Marvel Studios", description: "White Vision seeks to regain lost memories and human identity.", characters: ["White Vision", "Wiccan", "Tommy"], priority: 2 },
+            { id: 129, year: 2026, title: "Avengers: Doomsday", poster: "posters/avengersdoomsday2026.jpg", type: "Movie", universe: "MCU", era: "Multiverse & Beyond", studio: "Marvel Studios", description: "Victor Von Doom threatens the entire Multiverse as heroes clash.", characters: ["Doctor Doom (Robert Downey Jr.)", "Fantastic Four", "Avengers"], priority: 1 }
+        ];
+
+        /* ==========================================================================
+           DOM LOGIC & INTERACTIVITY
+           ========================================================================== */
+        let currentFilter = 'all';
+        let searchQuery = '';
+        let currentView = 'timeline';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initHeroCanvas();
+            renderTimeline();
+            initCounters();
+            setupEventListeners();
+        });
+
+        /* POSTER SVG FALLBACK GENERATOR */
+        function generatePosterSVG(item) {
+            const width = 300;
+            const height = 440;
+            const title = item.title.toUpperCase();
+            const year = item.year;
+
+            return `
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" class="w-full h-full object-cover rounded-xl">
+                <defs>
+                    <linearGradient id="bg-${item.id}" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#0E121B"/>
+                        <stop offset="50%" stop-color="#141926"/>
+                        <stop offset="100%" stop-color="#06070A"/>
+                    </linearGradient>
+                </defs>
+
+                <rect width="100%" height="100%" fill="url(#bg-${item.id})"/>
+                <circle cx="150" cy="170" r="100" fill="#C8102E" fill-opacity="0.12"/>
+
+                <text x="150" y="210" text-anchor="middle" font-family="Bebas Neue, sans-serif" font-size="105" font-weight="bold" fill="white" fill-opacity="0.04">${year}</text>
+
+                <g transform="translate(150, 155)">
+                    <circle r="40" fill="none" stroke="#C8102E" stroke-width="1.5" stroke-opacity="0.5"/>
+                    <text x="0" y="6" text-anchor="middle" font-family="Cinzel, serif" font-size="12" font-weight="bold" fill="#E2E8F0">${item.universe}</text>
+                </g>
+
+                <rect x="12" y="12" width="276" height="416" rx="10" fill="none" stroke="white" stroke-opacity="0.08" stroke-width="1"/>
+
+                <foreignObject x="16" y="265" width="268" height="115">
+                    <div xmlns="http://www.w3.org/1999/xhtml" class="h-full flex flex-col justify-end text-center">
+                        <span style="color: #94A3B8; font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase;">MARVEL COLLECTOR</span>
+                        <h4 style="color: #FFFFFF; font-family: 'Bebas Neue', sans-serif; font-size: 24px; line-height: 1.15; margin-top: 4px;">${title}</h4>
+                    </div>
+                </foreignObject>
+
+                <rect x="90" y="392" width="120" height="20" rx="10" fill="white" fill-opacity="0.05" stroke="white" stroke-opacity="0.1" stroke-width="1"/>
+                <text x="150" y="406" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="600" fill="#CBD5E1">${item.type} • ${year}</text>
+            </svg>`;
+        }
+
+        /* POSTER IMAGE ERROR HANDLER */
+        function handlePosterError(imgElement, itemId) {
+            const item = marvelData.find(d => d.id === itemId);
+            if (!item) return;
+
+            // Try hyphenated filename as alternative (e.g. spider-man-2002.jpg)
+            const hyphenatedSlug = item.title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+            const altSrc = `posters/${hyphenatedSlug}-${item.year}.jpg`;
+
+            if (!imgElement.dataset.retried && imgElement.src !== window.location.origin + '/' + altSrc) {
+                imgElement.dataset.retried = 'true';
+                imgElement.src = altSrc;
+                return;
+            }
+
+            imgElement.onerror = null; // Prevent loop
+            imgElement.outerHTML = generatePosterSVG(item);
+        }
+
+        /* POSTER IMAGE HTML GENERATOR */
+        function getPosterHTML(item) {
+            const compactSlug = item.title.toLowerCase().replace(/[^a-z0-9]+/g, '');
+            let posterSrc = item.poster || `posters/${compactSlug}${item.year}.jpg`;
+            posterSrc = posterSrc.replace(/\\/g, '/');
+
+            return `
+                <img src="${posterSrc}" 
+                     alt="${item.title} Poster" 
+                     class="w-full h-full object-cover rounded-xl transition-transform duration-300 group-hover:scale-105"
+                     loading="lazy"
+                     onerror="handlePosterError(this, ${item.id})" />
+            `;
+        }
+
+        /* RENDER TIMELINE FUNCTION */
+        function renderTimeline() {
+            const container = document.getElementById('timelineContainer');
+            const noResults = document.getElementById('noResultsState');
+            const visibleCountEl = document.getElementById('visibleCount');
+            const heroCountEl = document.getElementById('heroProjectCount');
+
+            // Filter logic
+            const filteredData = marvelData.filter(item => {
+                let matchesFilter = false;
+                if (currentFilter === 'all') {
+                    matchesFilter = true;
+                } else if (currentFilter.startsWith('priority-')) {
+                    const pVal = parseInt(currentFilter.replace('priority-', ''));
+                    matchesFilter = (item.priority === pVal);
+                } else {
+                    matchesFilter = (currentFilter === 'MCU' && item.universe === 'MCU') ||
+                        (currentFilter === 'Fox' && item.universe === 'Fox') ||
+                        (currentFilter === 'Sony' && item.universe === 'Sony') ||
+                        (currentFilter === 'Movie' && item.type === 'Movie') ||
+                        (currentFilter === 'Series' && item.type === 'Series') ||
+                        (currentFilter === 'Disney+' && (item.era.includes('Disney+') || item.studio.includes('Disney+')));
+                }
+
+                const query = searchQuery.toLowerCase().trim();
+                const matchesSearch = !query ||
+                    item.title.toLowerCase().includes(query) ||
+                    item.year.toString().includes(query) ||
+                    item.universe.toLowerCase().includes(query) ||
+                    item.era.toLowerCase().includes(query) ||
+                    item.characters.some(c => c.toLowerCase().includes(query));
+
+                return matchesFilter && matchesSearch;
+            });
+
+            visibleCountEl.textContent = filteredData.length;
+            heroCountEl.textContent = marvelData.length;
+
+            if (filteredData.length === 0) {
+                container.innerHTML = '';
+                noResults.classList.remove('hidden');
+                return;
+            } else {
+                noResults.classList.add('hidden');
+            }
+
+            filteredData.sort((a, b) => a.year - b.year || a.id - b.id);
+
+            if (currentView === 'grid') {
+                document.getElementById('timelineConnectorLine').classList.add('hidden');
+                container.className = "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-4";
+                container.innerHTML = filteredData.map(item => renderGridCard(item)).join('');
+            } else {
+                document.getElementById('timelineConnectorLine').classList.remove('hidden');
+                container.className = "space-y-12 pt-2";
+
+                const eras = [...new Set(filteredData.map(d => d.era))];
+
+                container.innerHTML = eras.map(era => {
+                    const eraItems = filteredData.filter(d => d.era === era);
+                    return `
+                    <div class="era-block space-y-8">
+                        <!-- Era Header -->
+                        <div class="relative z-10 flex items-center justify-center">
+                            <div class="glass-panel border border-white/10 px-6 py-2 rounded-full text-center shadow-lg">
+                                <h3 class="font-cinematic text-sm sm:text-base font-bold text-white uppercase tracking-wider flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-marvelRed"></span>
+                                    <span>${era}</span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-marvelRed"></span>
+                                </h3>
+                            </div>
+                        </div>
+
+                        <!-- Cards -->
+                        <div class="space-y-8">
+                            ${eraItems.map((item, index) => renderTimelineRow(item, index)).join('')}
+                        </div>
+                    </div>`;
+                }).join('');
+            }
+        }
+
+        /* RENDER TIMELINE ROW */
+        function renderTimelineRow(item, index) {
+            const isEven = index % 2 === 0;
+
+            return `
+            <div class="relative flex flex-col lg:flex-row items-center justify-center gap-6 group" data-id="${item.id}">
+                
+                <!-- Center Node Circle -->
+                <div class="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-7 h-7 rounded-full bg-spaceBlack border border-marvelRed/60 items-center justify-center group-hover:scale-125 transition-transform">
+                    <div class="w-2 h-2 rounded-full bg-marvelRed"></div>
+                </div>
+
+                <!-- Content Column -->
+                <div class="w-full lg:w-1/2 ${isEven ? 'lg:pr-10 lg:text-right' : 'lg:order-2 lg:pl-10 lg:text-left'}">
+                    <div class="glass-panel glass-card-hover p-5 rounded-2xl border border-white/10 relative overflow-hidden">
+                        
+                        <div class="flex flex-wrap items-center gap-2 mb-2 ${isEven ? 'lg:justify-end' : 'lg:justify-start'}">
+                            <span class="font-mono text-xs font-semibold text-marvelRed bg-marvelRed/10 border border-marvelRed/30 px-2.5 py-0.5 rounded-full">
+                                ${item.year}
+                            </span>
+                            <span class="text-[10px] text-slate-300 bg-white/5 border border-white/10 px-2 py-0.5 rounded-full">
+                                ${item.type}
+                            </span>
+                            <span class="text-[10px] text-marvelGold bg-white/5 border border-white/10 px-2 py-0.5 rounded-full">
+                                ${item.universe}
+                            </span>
+                            ${getPriorityBadgeHTML(item.priority)}
+                        </div>
+
+                        <h4 class="font-marvel text-2xl text-white group-hover:text-marvelRed transition-colors mb-1.5">
+                            ${item.title}
+                        </h4>
+
+                        <p class="text-slate-300 text-xs line-clamp-2 leading-relaxed mb-3">
+                            ${item.description}
+                        </p>
+
+                        <div class="flex flex-wrap gap-1 mb-4 ${isEven ? 'lg:justify-end' : 'lg:justify-start'}">
+                            ${item.characters.slice(0, 3).map(c => `<span class="text-[10px] bg-white/5 border border-white/10 text-slate-400 px-2 py-0.5 rounded">${c}</span>`).join('')}
+                        </div>
+
+                        <div class="flex items-center gap-2 ${isEven ? 'lg:justify-end' : 'lg:justify-start'}">
+                            <button onclick="openModal(${item.id})" class="px-4 py-1.5 bg-white/5 hover:bg-marvelRed text-white text-xs font-semibold uppercase tracking-wider rounded-lg border border-white/10 transition-all">
+                                Inspect Specs
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Poster Visual (Explicit Image Tag) -->
+                <div class="w-full sm:w-60 lg:w-64 ${isEven ? 'lg:order-2 lg:pl-10' : 'lg:pr-10'}">
+                    <div onclick="openModal(${item.id})" class="relative rounded-xl overflow-hidden shadow-xl cursor-pointer group border border-white/10 aspect-[2/3] bg-spaceBlack">
+                        ${getPosterHTML(item)}
+                    </div>
+                </div>
+            </div>`;
+        }
+
+        /* RENDER GRID CARD */
+        function renderGridCard(item) {
+            return `
+            <div class="glass-panel glass-card-hover p-4 rounded-2xl border border-white/10 flex flex-col justify-between group cursor-pointer" onclick="openModal(${item.id})">
+                <div>
+                    <!-- Explicit Image Tag Container -->
+                    <div class="relative aspect-[2/3] rounded-xl overflow-hidden mb-3 border border-white/10 bg-spaceBlack">
+                        ${getPosterHTML(item)}
+                        <div class="absolute top-2.5 left-2.5 bg-spaceBlack/80 text-marvelRed font-mono font-bold text-[11px] px-2 py-0.5 rounded-md border border-white/10">
+                            ${item.year}
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-1.5 mb-2">
+                        <span class="text-[9px] text-slate-300 bg-white/5 border border-white/10 px-2 py-0.5 rounded">${item.type}</span>
+                        <span class="text-[9px] text-marvelGold bg-white/5 border border-white/10 px-2 py-0.5 rounded">${item.universe}</span>
+                        ${getPriorityBadgeHTML(item.priority)}
+                    </div>
+
+                    <h4 class="font-marvel text-xl text-white group-hover:text-marvelRed transition-colors mb-1">${item.title}</h4>
+                    <p class="text-xs text-slate-400 line-clamp-2 leading-relaxed mb-3">${item.description}</p>
+                </div>
+
+                <div class="pt-3 border-t border-white/10 flex items-center justify-between">
+                    <span class="text-[10px] font-mono text-slate-500">${item.studio}</span>
+                    <span class="text-xs text-marvelRed font-semibold">Inspect</span>
+                </div>
+            </div>`;
+        }
+
+        /* MODAL INTERACTIVITY */
+        function openModal(id) {
+            const item = marvelData.find(d => d.id === id);
+            if (!item) return;
+
+            document.getElementById('modalTitle').textContent = item.title;
+            document.getElementById('modalSubtitle').textContent = `${item.year} • ${item.studio} • ${item.era}`;
+            document.getElementById('modalType').textContent = item.type;
+            document.getElementById('modalYear').textContent = item.year;
+            document.getElementById('modalStudio').textContent = item.studio;
+            document.getElementById('modalUniverse').textContent = item.universe;
+            document.getElementById('modalDescription').textContent = item.description;
+            document.getElementById('modalId').textContent = item.id.toString().padStart(3, '0');
+            document.getElementById('modalPriority').innerHTML = getPriorityBadgeHTML(item.priority);
+
+            const charContainer = document.getElementById('modalCharacters');
+            charContainer.innerHTML = item.characters.map(c =>
+                `<span class="px-2.5 py-1 bg-white/5 border border-white/10 text-slate-200 text-xs rounded-lg font-medium">
+                    ${c}
+                </span>`
+            ).join('');
+
+            const badgeContainer = document.getElementById('modalBadgeContainer');
+            badgeContainer.innerHTML = `
+                <span class="bg-marvelRed text-white font-mono font-bold text-xs px-2.5 py-0.5 rounded-full">${item.year}</span>
+                <span class="bg-white/10 text-slate-200 font-mono text-xs px-2.5 py-0.5 rounded-full">${item.universe}</span>
+                <span class="bg-white/10 text-slate-200 font-mono text-xs px-2.5 py-0.5 rounded-full">${item.type}</span>
+            `;
+
+            const modal = document.getElementById('detailModal');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+            }, 10);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('detailModal');
+            modal.classList.add('opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        /* LISTENERS */
+        function setupEventListeners() {
+            const searchInput = document.getElementById('searchInput');
+            const clearBtn = document.getElementById('clearSearchBtn');
+
+            searchInput.addEventListener('input', (e) => {
+                searchQuery = e.target.value;
+                if (searchQuery) {
+                    clearBtn.classList.remove('hidden');
+                } else {
+                    clearBtn.classList.add('hidden');
+                }
+                renderTimeline();
+            });
+
+            clearBtn.addEventListener('click', () => {
+                searchInput.value = '';
+                searchQuery = '';
+                clearBtn.classList.add('hidden');
+                renderTimeline();
+            });
+
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => {
+                        b.classList.remove('active', 'bg-marvelRed', 'text-white');
+                        b.classList.add('bg-white/5', 'text-slate-300');
+                    });
+                    btn.classList.add('active', 'bg-marvelRed', 'text-white');
+                    btn.classList.remove('bg-white/5', 'text-slate-300');
+                    currentFilter = btn.dataset.filter;
+                    renderTimeline();
+                });
+            });
+
+            const viewTimelineBtn = document.getElementById('viewTimelineBtn');
+            const viewGridBtn = document.getElementById('viewGridBtn');
+
+            viewTimelineBtn.addEventListener('click', () => {
+                currentView = 'timeline';
+                viewTimelineBtn.className = "px-3 py-1.5 rounded-lg text-xs font-medium text-white bg-marvelRed transition-all";
+                viewGridBtn.className = "px-3 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition-all";
+                renderTimeline();
+            });
+
+            viewGridBtn.addEventListener('click', () => {
+                currentView = 'grid';
+                viewGridBtn.className = "px-3 py-1.5 rounded-lg text-xs font-medium text-white bg-marvelRed transition-all";
+                viewTimelineBtn.className = "px-3 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition-all";
+                renderTimeline();
+            });
+
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileDrawer = document.getElementById('mobileDrawer');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileDrawer.classList.toggle('hidden');
+            });
+
+            document.querySelectorAll('.mobile-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileDrawer.classList.add('hidden');
+                });
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeModal();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                    e.preventDefault();
+                    focusSearch();
+                }
+            });
+        }
+
+        function focusSearch() {
+            const input = document.getElementById('searchInput');
+            input.focus();
+            input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function filterByEra(eraName) {
+            searchQuery = eraName;
+            const searchInput = document.getElementById('searchInput');
+            searchInput.value = eraName;
+            document.getElementById('clearSearchBtn').classList.remove('hidden');
+            renderTimeline();
+            document.getElementById('controls').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function resetFilters() {
+            currentFilter = 'all';
+            searchQuery = '';
+            document.getElementById('searchInput').value = '';
+            document.getElementById('clearSearchBtn').classList.add('hidden');
+
+            document.querySelectorAll('.filter-btn').forEach((b, idx) => {
+                if (idx === 0) {
+                    b.classList.add('active', 'bg-marvelRed', 'text-white');
+                    b.classList.remove('bg-white/5', 'text-slate-300');
+                } else {
+                    b.classList.remove('active', 'bg-marvelRed', 'text-white');
+                    b.classList.add('bg-white/5', 'text-slate-300');
+                }
+            });
+
+            renderTimeline();
+        }
+
+        function initCounters() {
+            const counters = document.querySelectorAll('.counter');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = +counter.getAttribute('data-target');
+                        let count = 0;
+                        const speed = target / 30;
+
+                        const updateCount = () => {
+                            count += speed;
+                            if (count < target) {
+                                counter.innerText = Math.ceil(count);
+                                setTimeout(updateCount, 40);
+                            } else {
+                                counter.innerText = target;
+                            }
+                        };
+                        updateCount();
+                        observer.unobserve(counter);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            counters.forEach(c => observer.observe(c));
+        }
+
+        function initHeroCanvas() {
+            const canvas = document.getElementById('heroCanvas');
+            const ctx = canvas.getContext('2d');
+
+            function resize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            resize();
+            window.addEventListener('resize', resize);
+
+            const particles = [];
+            const particleCount = 35;
+
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    radius: Math.random() * 2 + 0.5,
+                    color: Math.random() > 0.5 ? '#C8102E' : '#94A3B8',
+                    vx: (Math.random() - 0.5) * 0.3,
+                    vy: (Math.random() - 0.5) * 0.3,
+                    alpha: Math.random() * 0.5 + 0.1
+                });
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                particles.forEach(p => {
+                    p.x += p.vx;
+                    p.y += p.vy;
+
+                    if (p.x < 0) p.x = canvas.width;
+                    if (p.x > canvas.width) p.x = 0;
+                    if (p.y < 0) p.y = canvas.height;
+                    if (p.y > canvas.height) p.y = 0;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = p.color;
+                    ctx.globalAlpha = p.alpha;
+                    ctx.fill();
+                });
+
+                requestAnimationFrame(animate);
+            }
+            animate();
+        }
+    </script>
+</body>
+
+</html>
